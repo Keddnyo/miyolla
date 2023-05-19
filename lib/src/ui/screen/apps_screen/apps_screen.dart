@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:miyolla/src/app/model/app_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AppsScreen extends StatelessWidget {
   const AppsScreen({super.key});
@@ -32,7 +33,12 @@ class AppsScreen extends StatelessWidget {
                   ),
                   margin: const EdgeInsets.all(4.0),
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      launchUrl(
+                        Uri.parse(app.downloadUrl),
+                        mode: LaunchMode.externalApplication,
+                      );
+                    },
                     borderRadius: borderRadius,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),

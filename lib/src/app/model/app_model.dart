@@ -41,11 +41,11 @@ class AppModel {
         ),
         AppModel(
           'Tools & Amazfit',
-          'https://play.google.com/store/apps/details?id=cz.zdenek.amazfittools',
+          'https://play.google.com/store/apps/details?id=cz.zdenekhorak.amazfittools',
         ),
         AppModel(
           'Tools & Mi Band',
-          'https://play.google.com/store/apps/details?id=cz.zdenek.mibandtools',
+          'https://play.google.com/store/apps/details?id=cz.zdenekhorak.mibandtools',
         ),
         AppModel(
           'Watch Droid Phone',
