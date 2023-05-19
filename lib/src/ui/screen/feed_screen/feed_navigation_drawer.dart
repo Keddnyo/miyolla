@@ -14,7 +14,7 @@ class FeedNavigationDrawer extends StatelessWidget {
 
         switch (index) {
           case 1:
-            Navigator.pushNamed(context, Routes.dialsDeviceList);
+            Navigator.pushNamed(context, Routes.dials);
             break;
           case 2:
             Navigator.pushNamed(context, Routes.apps);

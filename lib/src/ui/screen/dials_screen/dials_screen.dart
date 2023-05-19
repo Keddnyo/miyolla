@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:miyolla/src/app/model/dial_model.dart';
 
-class DialsDeviceListScreen extends StatelessWidget {
-  const DialsDeviceListScreen({super.key});
+import '../../../app/navigation/routes.dart';
+
+class DialsScreen extends StatelessWidget {
+  const DialsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,10 @@ class DialsDeviceListScreen extends StatelessWidget {
             child: ListTile(
               title: Text(dial.deviceName),
               subtitle: Text(dial.deviceAlias),
+              onTap: () {
+                Navigator.pushNamed(
+                    context, '${Routes.dials}?model=${dial.deviceAlias}');
+              },
             ),
           );
         },

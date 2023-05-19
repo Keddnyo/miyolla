@@ -7,6 +7,8 @@ class AppsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var borderRadius = const BorderRadius.all(Radius.circular(16.0));
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Apps'),
@@ -24,14 +26,20 @@ class AppsScreen extends StatelessWidget {
               children: [
                 Card(
                   elevation: 4.0,
-                  shape: const RoundedRectangleBorder(
-                    side: BorderSide(width: 0.5),
-                    borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                  shape: RoundedRectangleBorder(
+                    side: const BorderSide(width: 0.5),
+                    borderRadius: borderRadius,
                   ),
                   margin: const EdgeInsets.all(4.0),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.asset('images/${app.getIconName(index)}.png'),
+                  child: InkWell(
+                    onTap: () {},
+                    borderRadius: borderRadius,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.asset(
+                        'images/${app.getIconName(index)}.png',
+                      ),
+                    ),
                   ),
                 ),
                 Text(
