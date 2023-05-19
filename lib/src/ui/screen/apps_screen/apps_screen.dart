@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../common/constants.dart';
-
 class AppsScreen extends StatelessWidget {
   const AppsScreen({super.key});
 
@@ -11,7 +9,6 @@ class AppsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Apps'),
         shadowColor: Colors.black,
-        centerTitle: Constants.centerTitle,
       ),
     );
   }

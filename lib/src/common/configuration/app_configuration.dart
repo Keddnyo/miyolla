@@ -4,7 +4,7 @@ import 'package:miyolla/src/ui/screen/apps_screen/apps_screen.dart';
 import 'package:miyolla/src/ui/screen/dials_device_list_screen/dials_device_list_screen.dart';
 import 'package:miyolla/src/ui/screen/dials_target_device_screen/dials_target_device_screen.dart';
 
-import '../../common/constants.dart';
+import '../constants.dart';
 import '../../ui/screen/feed_screen/feed_screen.dart';
 import 'app_theme.dart';
 
