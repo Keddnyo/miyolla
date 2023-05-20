@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:miyolla/src/app/model/app_model.dart';
+import 'package:miyolla/src/app/utils/extensions/system_overlay_extensions.dart';
+import 'package:miyolla/src/common/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AppsScreen extends StatelessWidget {
@@ -8,12 +10,11 @@ class AppsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var borderRadius = const BorderRadius.all(Radius.circular(16.0));
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Apps'),
         shadowColor: Colors.black,
+        systemOverlayStyle: context.colorizeBars,
       ),
       body: AlignedGridView.extent(
         maxCrossAxisExtent: 184,
@@ -28,8 +29,11 @@ class AppsScreen extends StatelessWidget {
                 Card(
                   elevation: 4.0,
                   shape: RoundedRectangleBorder(
-                    side: const BorderSide(width: 0.5),
-                    borderRadius: borderRadius,
+                    side: BorderSide(
+                      width: 0.5,
+                      color: Theme.of(context).colorScheme.onBackground,
+                    ),
+                    borderRadius: Dimens.borderRadius,
                   ),
                   margin: const EdgeInsets.all(4.0),
                   child: InkWell(
@@ -39,7 +43,7 @@ class AppsScreen extends StatelessWidget {
                         mode: LaunchMode.externalApplication,
                       );
                     },
-                    borderRadius: borderRadius,
+                    borderRadius: Dimens.borderRadius,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Image.asset(
