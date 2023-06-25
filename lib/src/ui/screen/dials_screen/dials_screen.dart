@@ -15,10 +15,8 @@ class DialsScreen extends StatelessWidget {
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
       ),
-      body: GridView.builder(
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 290,
-        ),
+      body: ListView.builder(
+        shrinkWrap: true,
         itemCount: DialModel.list.length,
         itemBuilder: (context, index) {
           DialModel dial = DialModel.list[index];
@@ -31,35 +29,35 @@ class DialsScreen extends StatelessWidget {
             borderRadius: Dimens.borderRadius,
           );
 
-          return Card(
-            elevation: 4.0,
-            shape: rectangleBorder,
-            margin: const EdgeInsets.all(12.0),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Stack(
-                children: [
-                  Align(
-                    alignment: Alignment.center,
-                    child: Text(
+          bool isDarkTheme =
+              MediaQuery.of(context).platformBrightness == Brightness.dark;
+          Color titleColor = isDarkTheme ? Colors.yellow : Colors.indigo;
+
+          return Align(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 640),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Card(
+                  elevation: 4.0,
+                  shape: rectangleBorder,
+                  child: ListTile(
+                    title: Text(
                       dial.deviceName,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
+                        color: titleColor,
                       ),
+                    ),
+                    subtitle: Text(dial.deviceAlias),
+                    leading: const Icon(Icons.watch),
+                    trailing: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.open_in_new),
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: Text(
-                      dial.deviceAlias,
-                      style: const TextStyle(
-                        fontSize: 12.0,
-                      ),
-                    ),
-                  )
-                ],
+                ),
               ),
             ),
           );
