@@ -17,7 +17,7 @@ class AppsScreen extends StatelessWidget {
         systemOverlayStyle: context.colorizeBars,
       ),
       body: AlignedGridView.extent(
-        maxCrossAxisExtent: 184,
+        maxCrossAxisExtent: 256,
         itemCount: AppModel.list.length,
         itemBuilder: (context, index) {
           AppModel app = AppModel.list[index];
@@ -45,16 +45,20 @@ class AppsScreen extends StatelessWidget {
                     },
                     borderRadius: Dimens.borderRadius,
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(12.0),
                       child: Image.asset(
                         'images/${app.getIconName(index)}.png',
                       ),
                     ),
                   ),
                 ),
-                Text(
-                  app.appName,
-                  textAlign: TextAlign.center,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    app.appName,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(fontSize: 16),
+                  ),
                 )
               ],
             ),
