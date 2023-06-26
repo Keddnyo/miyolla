@@ -19,14 +19,9 @@ class FeedScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: 20,
         itemBuilder: (context, index) {
-          return Align(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 672),
-              child: const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: FeedCard(),
-              ),
-            ),
+          return const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: FeedCard(),
           );
         },
       ),
