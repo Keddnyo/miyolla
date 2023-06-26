@@ -38,6 +38,7 @@ class DialsScreen extends StatelessWidget {
                       ),
                     ),
                     subtitle: Text(dial.deviceAlias),
+                    leading: const Icon(Icons.watch),
                     trailing: IconButton(
                       onPressed: () {},
                       icon: const Icon(Icons.open_in_new),

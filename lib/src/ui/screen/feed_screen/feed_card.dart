@@ -13,9 +13,12 @@ class FeedCard extends StatelessWidget {
       child: Column(
         children: [
           const ListTile(
-            title: Text(
-              'Xiaomi Smart Band 4',
-              style: TextStyle(fontWeight: FontWeight.bold),
+            title: Tooltip(
+              message: 'deviceSource: 24, productionSource: 256',
+              child: Text(
+                'Xiaomi Smart Band 4',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
             ),
             subtitle: Text('1.0.9.66'),
             // leading: Image.asset('images/zepp.png'),
@@ -39,10 +42,9 @@ class FeedCard extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Tooltip(
                   message: '4.36 Mb',
-                  child: FilledButton.icon(
+                  child: FilledButton(
                     onPressed: () {},
-                    icon: const Icon(Icons.download),
-                    label: const Text('Get ROM'),
+                    child: const Text('Download'),
                   ),
                 ),
               ),

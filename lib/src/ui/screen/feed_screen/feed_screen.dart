@@ -3,8 +3,6 @@ import 'package:miyolla/src/app/utils/extensions/system_overlay_extensions.dart'
 import 'package:miyolla/src/ui/screen/feed_screen/feed_card.dart';
 import 'package:miyolla/src/ui/screen/feed_screen/feed_navigation_drawer.dart';
 
-import '../../../common/constants.dart';
-
 class FeedScreen extends StatelessWidget {
   const FeedScreen({super.key});
 
