@@ -24,6 +24,6 @@ class DialsWearableModel {
         DialsWearableModel('Xiaomi Mi Watch Lite', 'mijia.watch.v1'),
         DialsWearableModel('Xiaomi Mi Watch Color', 'midr.watch.ds'),
         DialsWearableModel('Xiaomi Mi Watch Color Sports', 'midr.watch.sports'),
-        DialsWearableModel('Xiaomi Mi Watch Global', 'mijia.watch.l61')
+        DialsWearableModel('Xiaomi Mi Watch Global', 'mijia.watch.l61'),
       ];
 }

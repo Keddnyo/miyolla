@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:miyolla/src/app/model/dials/request/dials_wearable_model.dart';
 import 'package:miyolla/src/app/model/dials/response/dial_item_model.dart';
 import 'package:miyolla/src/common/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TargetDeviceDials extends StatefulWidget {
   const TargetDeviceDials(this.dialModel, {super.key});
@@ -77,7 +78,12 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
                 margin: const EdgeInsets.all(8.0),
                 child: InkWell(
                   borderRadius: Dimens.borderRadius,
-                  onTap: () {},
+                  onTap: () {
+                    launchUrl(
+                      Uri.parse(dials[index].downloadUrl),
+                      mode: LaunchMode.externalApplication,
+                    );
+                  },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Image.network(dials[index].iconUrl),
