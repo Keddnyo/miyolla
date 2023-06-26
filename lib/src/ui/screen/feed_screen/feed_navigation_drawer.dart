@@ -21,11 +21,11 @@ class FeedNavigationDrawer extends StatelessWidget {
             break;
         }
       },
-      children: [
+      children: const [
         DrawerHeader(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Text(
                 Constants.appName,
                 style: TextStyle(fontSize: 36.0),
@@ -37,20 +37,20 @@ class FeedNavigationDrawer extends StatelessWidget {
             ],
           ),
         ),
-        const NavigationDrawerDestination(
+        NavigationDrawerDestination(
           icon: Icon(Icons.newspaper),
-          label: Text('News'),
+          label: Text('Firmwares'),
         ),
-        const NavigationDrawerDestination(
+        NavigationDrawerDestination(
           icon: Icon(Icons.palette_outlined),
-          label: Text('Dials'),
+          label: Text('Watch Faces'),
         ),
-        const NavigationDrawerDestination(
+        NavigationDrawerDestination(
           icon: Icon(Icons.widgets_outlined),
           label: Text('Apps'),
         ),
-        const Divider(),
-        const NavigationDrawerDestination(
+        Divider(),
+        NavigationDrawerDestination(
           icon: Icon(Icons.info_outlined),
           label: Text('About'),
         ),

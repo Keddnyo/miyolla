@@ -11,8 +11,8 @@ class DialsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dials'),
-        centerTitle: true,
+        title: const Text('Watch Faces'),
+        // centerTitle: true,
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
       ),
@@ -32,10 +32,7 @@ class DialsScreen extends StatelessWidget {
                   child: ListTile(
                     title: Text(
                       dial.deviceName,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: Text(dial.deviceAlias),
                     leading: const Icon(Icons.watch),

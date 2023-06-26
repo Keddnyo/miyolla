@@ -25,7 +25,8 @@ class FeedCard extends StatelessWidget {
           ),
           Divider(
             color: Theme.of(context).colorScheme.onBackground,
-            height: 1.0,
+            thickness: 0.1,
+            height: 0.5,
           ),
           const Padding(
             padding: EdgeInsets.all(8.0),
@@ -33,7 +34,8 @@ class FeedCard extends StatelessWidget {
           ),
           Divider(
             color: Theme.of(context).colorScheme.onBackground,
-            height: 1.0,
+            thickness: 0.1,
+            height: 0.5,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,

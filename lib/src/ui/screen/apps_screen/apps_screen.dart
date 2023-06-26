@@ -13,12 +13,12 @@ class AppsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Apps'),
-        centerTitle: true,
+        // centerTitle: true,
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
       ),
       body: AlignedGridView.extent(
-        maxCrossAxisExtent: 256,
+        maxCrossAxisExtent: 192,
         itemCount: AppModel.list.length,
         itemBuilder: (context, index) {
           AppModel app = AppModel.list[index];
@@ -58,7 +58,7 @@ class AppsScreen extends StatelessWidget {
                   child: Text(
                     app.appName,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 14),
                   ),
                 )
               ],
