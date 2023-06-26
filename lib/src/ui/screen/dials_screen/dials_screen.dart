@@ -17,18 +17,9 @@ class DialsScreen extends StatelessWidget {
         systemOverlayStyle: context.colorizeBars,
       ),
       body: ListView.builder(
-        shrinkWrap: true,
         itemCount: DialModel.list.length,
         itemBuilder: (context, index) {
           DialModel dial = DialModel.list[index];
-
-          var rectangleBorder = RoundedRectangleBorder(
-            side: BorderSide(
-              width: 0.5,
-              color: Theme.of(context).colorScheme.onBackground,
-            ),
-            borderRadius: Dimens.borderRadius,
-          );
 
           return Align(
             child: ConstrainedBox(
@@ -37,7 +28,7 @@ class DialsScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(12.0),
                 child: Card(
                   elevation: 4.0,
-                  shape: rectangleBorder,
+                  shape: Styles().getRectangleBorder(context),
                   child: ListTile(
                     title: Text(
                       dial.deviceName,
