@@ -16,7 +16,7 @@ class AppModel {
           'https://play.google.com/store/apps/details?id=com.xiaomi.wearable',
         ),
         AppModel(
-          'Notify Lite for Smartwatches',
+          'Notify Lite',
           'https://play.google.com/store/apps/details?id=com.mc.notify',
         ),
         AppModel(
