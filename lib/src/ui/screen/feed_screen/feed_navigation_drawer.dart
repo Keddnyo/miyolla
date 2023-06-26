@@ -47,7 +47,7 @@ class FeedNavigationDrawer extends StatelessWidget {
         ),
         NavigationDrawerDestination(
           icon: Icon(Icons.widgets_outlined),
-          label: Text('Apps'),
+          label: Text('Applications'),
         ),
         Divider(),
         NavigationDrawerDestination(

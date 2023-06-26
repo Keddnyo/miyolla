@@ -12,7 +12,7 @@ class AppsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Apps'),
+        title: const Text('Applications'),
         // centerTitle: true,
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
