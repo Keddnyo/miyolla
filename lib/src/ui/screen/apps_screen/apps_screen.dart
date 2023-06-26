@@ -13,6 +13,7 @@ class AppsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Apps'),
+        centerTitle: true,
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
       ),

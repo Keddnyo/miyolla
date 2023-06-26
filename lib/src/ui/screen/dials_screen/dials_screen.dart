@@ -12,6 +12,7 @@ class DialsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Dials'),
+        centerTitle: true,
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
       ),
@@ -29,13 +30,9 @@ class DialsScreen extends StatelessWidget {
             borderRadius: Dimens.borderRadius,
           );
 
-          bool isDarkTheme =
-              MediaQuery.of(context).platformBrightness == Brightness.dark;
-          Color titleColor = isDarkTheme ? Colors.yellow : Colors.indigo;
-
           return Align(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 640),
+              constraints: const BoxConstraints(maxWidth: 672),
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Card(
@@ -44,14 +41,12 @@ class DialsScreen extends StatelessWidget {
                   child: ListTile(
                     title: Text(
                       dial.deviceName,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: titleColor,
                       ),
                     ),
                     subtitle: Text(dial.deviceAlias),
-                    leading: const Icon(Icons.watch),
                     trailing: IconButton(
                       onPressed: () {},
                       icon: const Icon(Icons.open_in_new),

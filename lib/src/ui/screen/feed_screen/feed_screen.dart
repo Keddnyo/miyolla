@@ -7,11 +7,10 @@ class FeedScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var background = Theme.of(context).colorScheme.background;
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('News'),
+        centerTitle: true,
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
       ),
