@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:miyolla/src/app/model/dials/request/dials_wearable_model.dart';
 import 'package:miyolla/src/app/model/dials/response/dial_item_model.dart';
+import 'package:miyolla/src/app/utils/extensions/system_overlay_extensions.dart';
 import 'package:miyolla/src/common/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -34,6 +35,9 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.dialModel.deviceName),
+        // centerTitle: true,
+        shadowColor: Colors.black,
+        systemOverlayStyle: context.colorizeBars,
       ),
       body: FutureBuilder(
         future: futureDialsData,
