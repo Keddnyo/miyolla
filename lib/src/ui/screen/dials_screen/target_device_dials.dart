@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:miyolla/src/app/model/dials/request/dials_wearable_model.dart';
 import 'package:miyolla/src/app/model/dials/response/dial_item_model.dart';
+import 'package:miyolla/src/app/utils/extensions/list_distinct_extension.dart';
 import 'package:miyolla/src/app/utils/extensions/system_overlay_extensions.dart';
 import 'package:miyolla/src/common/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -70,27 +71,45 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
             }
           }
 
+          // Remove duplicates
+          dials = dials.unique((dial) => dial.downloadUrl);
+
           return GridView.builder(
             itemCount: dials.length,
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 256,
             ),
             itemBuilder: (context, index) {
-              return Card(
-                shape: Styles().getRectangleBorder(context),
-                elevation: 4.0,
-                margin: const EdgeInsets.all(8.0),
-                child: InkWell(
-                  borderRadius: Dimens.borderRadius,
-                  onTap: () {
-                    launchUrl(
-                      Uri.parse(dials[index].downloadUrl),
-                      mode: LaunchMode.externalApplication,
-                    );
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.network(dials[index].iconUrl),
+              return Tooltip(
+                message: dials[index].title,
+                child: Card(
+                  shape: Styles().getRectangleBorder(context),
+                  elevation: 4.0,
+                  margin: const EdgeInsets.all(8.0),
+                  child: InkWell(
+                    borderRadius: Dimens.borderRadius,
+                    onTap: () {
+                      launchUrl(
+                        Uri.parse(dials[index].downloadUrl),
+                        mode: LaunchMode.externalApplication,
+                      );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.network(
+                        dials[index].iconUrl,
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress?.cumulativeBytesLoaded ==
+                              loadingProgress?.expectedTotalBytes) {
+                            return child;
+                          } else {
+                            return const Center(
+                              child: CircularProgressIndicator(),
+                            );
+                          }
+                        },
+                      ),
+                    ),
                   ),
                 ),
               );

@@ -15,12 +15,9 @@ class FeedCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: ListTile(
-              title: const Tooltip(
-                message: 'deviceSource: 24, productionSource: 256',
-                child: Text(
-                  'Xiaomi Smart Band 4',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+              title: const Text(
+                'Xiaomi Smart Band 4',
+                style: TextStyle(fontWeight: FontWeight.bold),
               ),
               subtitle: const Text('1.0.9.66'),
               leading: Image.asset('images/zepp.png'),
@@ -46,6 +43,18 @@ class FeedCard extends StatelessWidget {
               ),
             ),
             subtitle: Text('- Fix some known issues'),
+          ),
+          Divider(
+            color: Theme.of(context).colorScheme.onBackground,
+            thickness: 0.5,
+            height: 0.5,
+          ),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              'deviceSource: 24, productionSource: 256',
+              style: TextStyle(fontSize: 12.0),
+            ),
           ),
         ],
       ),

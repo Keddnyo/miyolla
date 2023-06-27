@@ -12,7 +12,7 @@ class DialsDeviceList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Wearables'),
+        title: const Text('Choose wearable'),
         // centerTitle: true,
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
