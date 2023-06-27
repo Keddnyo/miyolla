@@ -28,7 +28,7 @@ class FeedNavigationDrawer extends StatelessWidget {
             children: [
               Text(
                 Constants.appName,
-                style: TextStyle(fontSize: 36.0),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36.0),
               ),
               Text(
                 Constants.appDescription,
@@ -38,7 +38,7 @@ class FeedNavigationDrawer extends StatelessWidget {
           ),
         ),
         NavigationDrawerDestination(
-          icon: Icon(Icons.newspaper),
+          icon: Icon(Icons.memory),
           label: Text('Firmwares'),
         ),
         NavigationDrawerDestination(

@@ -17,6 +17,7 @@ class MiYollaApp extends StatelessWidget {
       theme: MiYollaTheme.light,
       darkTheme: MiYollaTheme.dark,
       initialRoute: Routes.feed,
+      debugShowCheckedModeBanner: false,
       routes: {
         Routes.feed: (_) => const FeedScreen(),
         Routes.dials: (_) => const DialsScreen(),

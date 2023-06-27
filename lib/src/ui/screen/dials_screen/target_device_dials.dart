@@ -36,7 +36,7 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.dialModel.deviceName),
-        // centerTitle: true,
+        centerTitle: true,
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
       ),
@@ -58,14 +58,13 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
           Map<String, dynamic> jsonResponse = jsonDecode(snapshot.data!.body);
           List<dynamic> data = jsonResponse['data'];
 
-          for (var d = 0; d < data.length; d++) {
-            List<dynamic> list = data[d]['list'];
-            for (var l = 0; l < list.length; l++) {
+          for (var d in data) {
+            for (var l in d['list']) {
               dials.add(
                 DialItemModel(
-                  title: list[l]['display_name'],
-                  iconUrl: list[l]['icon'],
-                  downloadUrl: list[l]['config_file'],
+                  title: l['display_name'],
+                  iconUrl: l['icon'],
+                  downloadUrl: l['config_file'],
                 ),
               );
             }
@@ -105,12 +104,8 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
                           if (loaded == expected) {
                             return child;
                           } else {
-                            return Center(
-                              child: CircularProgressIndicator(
-                                value: expected != null
-                                    ? loaded! / expected
-                                    : null,
-                              ),
+                            return const Center(
+                              child: CircularProgressIndicator(),
                             );
                           }
                         },

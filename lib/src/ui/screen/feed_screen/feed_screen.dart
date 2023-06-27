@@ -11,7 +11,7 @@ class FeedScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Firmwares'),
-        // centerTitle: true,
+        centerTitle: true,
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
       ),
@@ -19,9 +19,17 @@ class FeedScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: 20,
         itemBuilder: (context, index) {
-          return const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: FeedCard(),
+          return Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: 6.0,
+              horizontal: 12.0,
+            ),
+            child: Align(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 768),
+                child: const FeedCard(),
+              ),
+            ),
           );
         },
       ),
