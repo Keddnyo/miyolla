@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:http/http.dart' as http;
 import 'package:miyolla/src/app/model/dials/request/dials_wearable_model.dart';
 import 'package:miyolla/src/app/model/dials/response/dial_item_model.dart';
@@ -28,6 +29,9 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
           'model': widget.dialModel.deviceAlias,
         },
       ),
+      // headers: {
+      //   'Watch-Appstore-Common': '_locale=en_US&_language=en',
+      // },
     );
   }
 
@@ -73,43 +77,62 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
           // Remove duplicates
           dials = dials.unique((dial) => dial.downloadUrl);
 
-          return GridView.builder(
+          return AlignedGridView.extent(
+            maxCrossAxisExtent: 256,
             itemCount: dials.length,
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 256,
-            ),
             itemBuilder: (context, index) {
-              return Tooltip(
-                message: dials[index].title,
-                child: Card(
-                  shape: Styles().getRectangleBorder(context),
-                  elevation: 4.0,
-                  margin: const EdgeInsets.all(8.0),
-                  child: InkWell(
-                    borderRadius: Dimens.borderRadius,
-                    onTap: () {
-                      launchUrl(
-                        Uri.parse(dials[index].downloadUrl),
-                        mode: LaunchMode.externalApplication,
-                      );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Image.network(
-                        dials[index].iconUrl,
-                        loadingBuilder: (context, child, loadingProgress) {
-                          var loaded = loadingProgress?.cumulativeBytesLoaded;
-                          var expected = loadingProgress?.expectedTotalBytes;
+              return Card(
+                shape: Styles().getRectangleBorder(context),
+                elevation: 4.0,
+                margin: const EdgeInsets.all(8.0),
+                child: InkWell(
+                  borderRadius: Dimens.borderRadius,
+                  onTap: () {
+                    launchUrl(
+                      Uri.parse(dials[index].downloadUrl),
+                      mode: LaunchMode.externalApplication,
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        ConstrainedBox(
+                          constraints: const BoxConstraints(maxHeight: 256),
+                          child: Image.network(
+                            dials[index].iconUrl,
+                            loadingBuilder: (context, child, loadingProgress) {
+                              var loaded =
+                                  loadingProgress?.cumulativeBytesLoaded;
+                              var expected =
+                                  loadingProgress?.expectedTotalBytes;
 
-                          if (loaded == expected) {
-                            return child;
-                          } else {
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-                        },
-                      ),
+                              if (loaded == expected) {
+                                return child;
+                              } else {
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              }
+                            },
+                          ),
+                        ),
+                        Tooltip(
+                          message: dials[index].title,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              dials[index].title,
+                              maxLines: 1,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
