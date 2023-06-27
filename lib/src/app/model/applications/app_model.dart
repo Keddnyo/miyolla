@@ -1,6 +1,7 @@
 class AppModel {
-  final String appName, downloadUrl;
   AppModel(this.appName, this.downloadUrl);
+
+  final String appName, downloadUrl;
 
   static List<AppModel> get list => [
         AppModel(
