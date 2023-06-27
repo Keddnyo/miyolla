@@ -99,12 +99,18 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
                       child: Image.network(
                         dials[index].iconUrl,
                         loadingBuilder: (context, child, loadingProgress) {
-                          if (loadingProgress?.cumulativeBytesLoaded ==
-                              loadingProgress?.expectedTotalBytes) {
+                          var loaded = loadingProgress?.cumulativeBytesLoaded;
+                          var expected = loadingProgress?.expectedTotalBytes;
+
+                          if (loaded == expected) {
                             return child;
                           } else {
-                            return const Center(
-                              child: CircularProgressIndicator(),
+                            return Center(
+                              child: CircularProgressIndicator(
+                                value: expected != null
+                                    ? loaded! / expected
+                                    : null,
+                              ),
                             );
                           }
                         },

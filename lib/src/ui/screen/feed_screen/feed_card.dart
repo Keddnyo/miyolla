@@ -21,13 +21,6 @@ class FeedCard extends StatelessWidget {
               ),
               subtitle: const Text('1.0.9.66'),
               leading: Image.asset('images/zepp.png'),
-              trailing: Tooltip(
-                message: '4.32 Mb',
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.download),
-                ),
-              ),
             ),
           ),
           Divider(
@@ -49,11 +42,13 @@ class FeedCard extends StatelessWidget {
             thickness: 0.5,
             height: 0.5,
           ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text(
-              'deviceSource: 24, productionSource: 256',
-              style: TextStyle(fontSize: 12.0),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                FilledButton(onPressed: () {}, child: const Text('More')),
+              ],
             ),
           ),
         ],
