@@ -1,5 +1,6 @@
 class FirmwareResponseModel {
   FirmwareResponseModel({
+    required this.deviceName,
     required this.deviceSource,
     required this.productionSource,
     this.firmwareVersion,
@@ -16,37 +17,23 @@ class FirmwareResponseModel {
     this.lang,
   });
 
-  String deviceSource, productionSource;
+  String deviceName;
+  int deviceSource, productionSource;
   String? firmwareVersion, firmwareUrl;
-  String? resourceVersion, resourceUrl;
+  int? resourceVersion;
+  String? resourceUrl;
   String? baseResourceVersion, baseResourceUrl;
-  String? fontVersion, fontUrl;
+  int? fontVersion;
+  String? fontUrl;
   String? gpsVersion, gpsUrl;
   String? changeLog;
   String? lang;
-
-  // static FirmwareResponseModel toFirmwareResponse(Map<String, dynamic> json) {
-  //   return FirmwareResponseModel(
-  //     deviceSource: json['deviceSource'],
-  //     productionSource: json['productionSource'],
-  //     firmwareVersion: json['firmwareVersion'],
-  //     firmwareUrl: json['firmwareUrl'],
-  //     resourceVersion: json['resourceVersion'],
-  //     resourceUrl: json['resourceUrl'],
-  //     baseResourceVersion: json['baseResourceVersion'],
-  //     baseResourceUrl: json['baseResourceUrl'],
-  //     fontVersion: json['fontVersion'],
-  //     fontUrl: json['fontUrl'],
-  //     gpsVersion: json['gpsVersion'],
-  //     gpsUrl: json['gpsUrl'],
-  //     changeLog: json['changeLog'],
-  //     lang: json['lang'],
-  //   );
-  // }
 }
 
 extension JsonToFirmwareResponse on Map<String, dynamic> {
-  FirmwareResponseModel toFirmwareResponse() => FirmwareResponseModel(
+  FirmwareResponseModel toFirmwareResponse({required String deviceName}) =>
+      FirmwareResponseModel(
+        deviceName: deviceName,
         deviceSource: this['deviceSource'],
         productionSource: this['productionSource'],
         firmwareVersion: this['firmwareVersion'],

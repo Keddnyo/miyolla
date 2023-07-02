@@ -1,10 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
+import 'package:miyolla/src/app/model/firmwares/firmware_response_model.dart';
 import 'package:miyolla/src/app/utils/extensions/system_overlay_extensions.dart';
+import 'package:miyolla/src/remote/firmware_request.dart';
 import 'package:miyolla/src/ui/screen/firmwares_feed_screen/feed_card.dart';
 import 'package:miyolla/src/ui/screen/firmwares_feed_screen/feed_navigation_drawer.dart';
 
-class FeedScreen extends StatelessWidget {
+import '../../../app/model/firmwares/firmware_request_model.dart';
+
+class FeedScreen extends StatefulWidget {
   const FeedScreen({super.key});
+
+  @override
+  State<FeedScreen> createState() => _FeedScreenState();
+}
+
+class _FeedScreenState extends State<FeedScreen> {
+  // static const _pageSize = 1;
+  final PagingController<int, FirmwareResponseModel> _pagingController =
+      PagingController(firstPageKey: 0);
+
+  @override
+  void initState() {
+    _pagingController.addPageRequestListener((pageKey) {
+      _fetchPage(pageKey);
+    });
+    super.initState();
+  }
+
+  Future<void> _fetchPage(int pageKey) async {
+    try {
+      final newItems = await FirmwareRequest.fetchFirmware(
+        FirmwareRequestModel.list[pageKey],
+      );
+      final isLastPage = pageKey == FirmwareRequestModel.list.length - 1;
+      if (isLastPage) {
+        _pagingController.appendLastPage(
+          newItems != null ? [newItems] : [],
+        );
+      } else {
+        final nextPageKey = pageKey + 1;
+        _pagingController.appendPage(
+          newItems != null ? [newItems] : [],
+          nextPageKey,
+        );
+      }
+    } catch (error) {
+      _pagingController.error = error;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,23 +60,18 @@ class FeedScreen extends StatelessWidget {
         systemOverlayStyle: context.colorizeBars,
       ),
       drawer: const FeedNavigationDrawer(),
-      body: ListView.builder(
-        itemCount: 20,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 6.0,
-              horizontal: 12.0,
-            ),
-            child: Align(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 768),
-                child: const FeedCard(),
-              ),
-            ),
-          );
-        },
+      body: PagedListView<int, FirmwareResponseModel>(
+        pagingController: _pagingController,
+        builderDelegate: PagedChildBuilderDelegate<FirmwareResponseModel>(
+          itemBuilder: (context, item, index) => FeedCard(firmware: item),
+        ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _pagingController.dispose();
   }
 }

@@ -34,8 +34,8 @@ class FirmwareRequestModel {
 }
 
 enum FirmwareRequestApp {
-  zepp('7.8.5-play', '101072'),
-  zeppLife('6.7.1', '50703');
+  zepp('com.huami.midong', '7.8.5-play_101072'),
+  zeppLife('com.xiaomi.hm.health', '6.7.1_50703');
 
   const FirmwareRequestApp(this.appname, this.appVersion);
   final String appname, appVersion;
