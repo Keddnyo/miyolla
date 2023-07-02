@@ -25,7 +25,12 @@ class FeedCard extends StatelessWidget {
         }
 
         return AlertDialog(
-          title: Text(firmware.deviceName),
+          scrollable: true,
+          title: Text(
+            firmware.deviceName,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+          icon: const Icon(Icons.info),
           content: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 384),
             child: Column(
@@ -34,58 +39,38 @@ class FeedCard extends StatelessWidget {
               children: [
                 Wrap(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: _FirmwareChip(
-                        label: 'deviceSource: ${firmware.deviceSource}',
-                      ),
+                    _FirmwareChip(
+                      label: 'deviceSource: ${firmware.deviceSource}',
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: _FirmwareChip(
-                        label: 'productionSource: ${firmware.productionSource}',
-                      ),
+                    _FirmwareChip(
+                      label: 'productionSource: ${firmware.productionSource}',
                     ),
                   ],
                 ),
                 const Divider(),
                 Wrap(
                   children: [
-                    if (firmware.firmwareVersion != null)
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: _FirmwareChip(
-                          label: 'Firmware: ${firmware.firmwareVersion}',
-                        ),
+                    if (firmware.firmwareVersion != null &&
+                        firmware.firmwareVersion!.isNotEmpty)
+                      _FirmwareChip(
+                        label: 'Firmware: ${firmware.firmwareVersion}',
                       ),
                     if (firmware.resourceVersion != null)
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: _FirmwareChip(
-                          label: 'Resource: ${firmware.resourceVersion}',
-                        ),
+                      _FirmwareChip(
+                        label: 'Resource: ${firmware.resourceVersion}',
                       ),
                     if (firmware.baseResourceVersion != null)
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: _FirmwareChip(
-                          label:
-                              'Base resource: ${firmware.baseResourceVersion}',
-                        ),
+                      _FirmwareChip(
+                        label: 'Base resource: ${firmware.baseResourceVersion}',
                       ),
                     if (firmware.fontVersion != null)
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: _FirmwareChip(
-                          label: 'Font: ${firmware.fontVersion}',
-                        ),
+                      _FirmwareChip(
+                        label: 'Font: ${firmware.fontVersion}',
                       ),
-                    if (firmware.gpsVersion != null)
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: _FirmwareChip(
-                          label: 'GPS: ${firmware.gpsVersion}',
-                        ),
+                    if (firmware.gpsVersion != null &&
+                        firmware.gpsVersion!.isNotEmpty)
+                      _FirmwareChip(
+                        label: 'GPS: ${firmware.gpsVersion}',
                       ),
                   ],
                 ),
@@ -94,21 +79,21 @@ class FeedCard extends StatelessWidget {
                   Wrap(
                     children: [
                       for (String? language in languages)
-                        Padding(
-                          padding: const EdgeInsets.all(4.0),
-                          child: _FirmwareChip(label: language ?? '<Unknown>'),
-                        )
+                        _FirmwareChip(label: language ?? '<?>')
                     ],
                   ),
               ],
             ),
           ),
           actions: <Widget>[
-            FilledButton(
-              child: const Text('Close'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: FilledButton(
+                child: const Text('Close'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
             ),
           ],
         );
@@ -120,7 +105,7 @@ class FeedCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 4.0,
-      margin: const EdgeInsets.all(16.0),
+      margin: const EdgeInsets.all(8.0),
       shape: Styles().getRectangleBorder(context),
       child: Column(
         children: [
@@ -138,6 +123,10 @@ class FeedCard extends StatelessWidget {
                 firmware.firmwareApp == FirmwareRequestApp.zeppLife
                     ? 'images/zepp_life.png'
                     : 'images/zepp.png',
+              ),
+              trailing: IconButton(
+                onPressed: () => _showAboutDialog(context),
+                icon: const Icon(Icons.info),
               ),
             ),
           ),
@@ -158,40 +147,22 @@ class FeedCard extends StatelessWidget {
                   '- Fix some known issues',
             ),
           ),
+          Divider(
+            color: Theme.of(context).colorScheme.onBackground,
+            thickness: 0.5,
+            height: 0.5,
+          ),
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                OutlinedButton(
-                  onPressed: () => _showAboutDialog(context),
-                  child: const Padding(
-                    padding: EdgeInsets.all(6.0),
-                    child: Icon(Icons.info_outlined),
-                  ),
-                ),
-                const SizedBox(
-                  width: 16.0,
-                ),
-                OutlinedButton(
-                  onPressed: () {},
-                  child: const Padding(
-                    padding: EdgeInsets.all(6.0),
-                    child: Icon(Icons.share_outlined),
-                  ),
-                ),
-                const SizedBox(
-                  width: 16.0,
-                ),
-                OutlinedButton(
+                FilledButton(
                   onPressed: () => launchUrl(
                     Uri.parse(firmware.firmwareUrl!),
                     mode: LaunchMode.externalApplication,
                   ),
-                  child: const Padding(
-                    padding: EdgeInsets.all(6.0),
-                    child: Icon(Icons.download),
-                  ),
+                  child: const Text('Download'),
                 ),
               ],
             ),
@@ -208,5 +179,8 @@ class _FirmwareChip extends StatelessWidget {
   final String label;
 
   @override
-  Widget build(BuildContext context) => Chip(label: Text(label));
+  Widget build(BuildContext context) => Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: Chip(label: Text(label)),
+      );
 }

@@ -20,18 +20,20 @@ class TargetDeviceDials extends StatefulWidget {
 
 class _TargetDeviceDialsState extends State<TargetDeviceDials> {
   Future<http.Response> get futureDialsData async {
-    return await http.get(
-      Uri.https(
-        'watch-appstore.iot.mi.com',
-        '/api/watchface/prize/tabs',
-        {
-          'model': widget.dialModel.deviceAlias,
-        },
-      ),
-      // headers: {
-      //   'Watch-Appstore-Common': '_locale=en_US&_language=en',
-      // },
-    );
+    return await http
+        .get(
+          Uri.https(
+            'watch-appstore.iot.mi.com',
+            '/api/watchface/prize/tabs',
+            {
+              'model': widget.dialModel.deviceAlias,
+            },
+          ),
+          // headers: {
+          //   'Watch-Appstore-Common': '_locale=en_US&_language=en',
+          // },
+        )
+        .timeout(const Duration(seconds: 5));
   }
 
   @override
@@ -46,6 +48,9 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
       body: FutureBuilder(
         future: futureDialsData,
         builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return const Center(child: Text('Error has occurred'));
+          }
           if (!snapshot.hasData) {
             return const Center(child: CircularProgressIndicator());
           }
