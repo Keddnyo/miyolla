@@ -19,9 +19,9 @@ class AppsScreen extends StatelessWidget {
       ),
       body: AlignedGridView.extent(
         maxCrossAxisExtent: 192,
-        itemCount: AppModel.list.length,
+        itemCount: WearableAppModel.list.length,
         itemBuilder: (context, index) {
-          AppModel app = AppModel.list[index];
+          WearableAppModel app = WearableAppModel.list[index];
 
           return Padding(
             padding: const EdgeInsets.all(8.0),

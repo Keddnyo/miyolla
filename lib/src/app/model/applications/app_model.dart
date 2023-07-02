@@ -1,66 +1,66 @@
-class AppModel {
-  AppModel(this.appName, this.downloadUrl);
+class WearableAppModel {
+  WearableAppModel(this.appName, this.downloadUrl);
 
   final String appName, downloadUrl;
 
-  static List<AppModel> get list => [
-        AppModel(
+  static List<WearableAppModel> get list => [
+        WearableAppModel(
           'Zepp',
           'https://play.google.com/store/apps/details?id=com.huami.watch.hmwatchmanager',
         ),
-        AppModel(
+        WearableAppModel(
           'Zepp Life',
           'https://play.google.com/store/apps/details?id=com.xiaomi.hm.health',
         ),
-        AppModel(
+        WearableAppModel(
           'Mi Fitness',
           'https://play.google.com/store/apps/details?id=com.xiaomi.wearable',
         ),
-        AppModel(
+        WearableAppModel(
           'Notify Lite',
           'https://play.google.com/store/apps/details?id=com.mc.notify',
         ),
-        AppModel(
+        WearableAppModel(
           'Notify for Amazfit',
           'https://play.google.com/store/apps/details?id=com.mc.amazfit1',
         ),
-        AppModel(
+        WearableAppModel(
           'Notify for Mi Band',
           'https://play.google.com/store/apps/details?id=com.mc.miband1',
         ),
-        AppModel(
+        WearableAppModel(
           'Notify Lite for Mi Band',
           'https://play.google.com/store/apps/details?id=com.mc.mibandlite1',
         ),
-        AppModel(
+        WearableAppModel(
           'Master for Amazfit',
           'https://play.google.com/store/apps/details?id=blacknote.amazfitmaster',
         ),
-        AppModel(
+        WearableAppModel(
           'Master for Mi Band',
           'https://play.google.com/store/apps/details?id=blacknote.mibandmaster',
         ),
-        AppModel(
+        WearableAppModel(
           'Tools & Amazfit',
           'https://play.google.com/store/apps/details?id=cz.zdenekhorak.amazfittools',
         ),
-        AppModel(
+        WearableAppModel(
           'Tools & Mi Band',
           'https://play.google.com/store/apps/details?id=cz.zdenekhorak.mibandtools',
         ),
-        AppModel(
+        WearableAppModel(
           'Watch Droid Phone',
           'https://play.google.com/store/apps/details?id=com.lumaticsoft.watchdroidphone',
         ),
-        AppModel(
+        WearableAppModel(
           'Watch Droid Assistant',
           'https://play.google.com/store/apps/details?id=com.lumaticsoft.watchdroidassistant',
         ),
-        AppModel(
+        WearableAppModel(
           'Gadgetbridge',
           'https://f-droid.org/ru/packages/nodomain.freeyourgadget.gadgetbridge/',
         ),
-        AppModel(
+        WearableAppModel(
           'Huafetcher',
           'https://codeberg.org/vanous/huafetcher/releases/latest',
         ),
