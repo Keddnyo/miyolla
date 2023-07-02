@@ -93,7 +93,10 @@ class FeedCard extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            subtitle: Text(firmware.changeLog ?? '- Fix some known issues'),
+            subtitle: Text(
+              firmware.changeLog?.split('###summary###').first ??
+                  '- Fix some known issues',
+            ),
           ),
           Divider(
             color: Theme.of(context).colorScheme.onBackground,

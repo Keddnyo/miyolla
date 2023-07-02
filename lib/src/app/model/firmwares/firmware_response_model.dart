@@ -26,7 +26,8 @@ class FirmwareResponseModel {
   String? firmwareVersion, firmwareUrl;
   int? resourceVersion;
   String? resourceUrl;
-  String? baseResourceVersion, baseResourceUrl;
+  int? baseResourceVersion;
+  String? baseResourceUrl;
   int? fontVersion;
   String? fontUrl;
   String? gpsVersion, gpsUrl;

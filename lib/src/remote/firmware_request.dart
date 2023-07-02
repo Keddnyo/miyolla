@@ -68,10 +68,15 @@ class FirmwareRequest {
       const Duration(seconds: 10),
     );
 
-    var responseBody = response.body;
-    print(responseBody);
+    if (response.statusCode != 200) return null;
 
-    Map<String, dynamic> jsonResponse = jsonDecode(responseBody);
+    var responseBody = response.body;
+
+    Map<String, dynamic> jsonResponse = jsonDecode(
+      utf8.decode(responseBody.codeUnits),
+    );
+
+    if (!jsonResponse.containsKey('firmwareVersion')) return null;
 
     return jsonResponse.toFirmwareResponse(
       deviceName: firmware.deviceName,
