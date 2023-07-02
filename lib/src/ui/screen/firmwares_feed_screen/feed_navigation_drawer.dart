@@ -1,10 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:miyolla/src/app/navigation/routes.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../common/constants.dart';
 
 class FeedNavigationDrawer extends StatelessWidget {
   const FeedNavigationDrawer({super.key});
+
+  Future<void> _dialogBuilder(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text(Constants.appName),
+          content: const Text('Created by ${Constants.appDeveloper}'),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Close'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            FilledButton(
+              child: const Text('GitHub'),
+              onPressed: () {
+                launchUrl(
+                  Uri.https(
+                    'github.com',
+                    '/${Constants.appDeveloper}/${Constants.appName}',
+                  ),
+                  mode: LaunchMode.externalApplication,
+                );
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +50,9 @@ class FeedNavigationDrawer extends StatelessWidget {
             break;
           case 2:
             Navigator.pushNamed(context, Routes.apps);
+            break;
+          case 3:
+            _dialogBuilder(context);
             break;
         }
       },
