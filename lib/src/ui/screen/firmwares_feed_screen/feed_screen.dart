@@ -63,7 +63,14 @@ class _FeedScreenState extends State<FeedScreen> {
       body: PagedListView<int, FirmwareResponseModel>(
         pagingController: _pagingController,
         builderDelegate: PagedChildBuilderDelegate<FirmwareResponseModel>(
-          itemBuilder: (context, item, index) => FeedCard(firmware: item),
+          itemBuilder: (context, item, index) {
+            return Align(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 768),
+                child: FeedCard(firmware: item),
+              ),
+            );
+          },
         ),
       ),
     );

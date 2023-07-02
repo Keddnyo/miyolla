@@ -8,11 +8,51 @@ class FeedCard extends StatelessWidget {
 
   final FirmwareResponseModel firmware;
 
+  Future<void> _dialogBuilder(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(firmware.deviceName),
+          content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              if (firmware.firmwareVersion != null)
+                Text('FW: ${firmware.firmwareVersion}'),
+              if (firmware.resourceVersion != null)
+                Text('RES: ${firmware.resourceVersion}'),
+              if (firmware.baseResourceVersion != null)
+                Text('BaseRES: ${firmware.baseResourceVersion}'),
+              if (firmware.fontVersion != null)
+                Text('BaseRES: ${firmware.fontVersion}'),
+              if (firmware.gpsVersion != null)
+                Text('BaseRES: ${firmware.gpsVersion}'),
+              const SizedBox(height: 24),
+              Text('deviceSource: ${firmware.deviceSource}'),
+              Text('productionSource: ${firmware.productionSource}'),
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Close'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            FilledButton(
+              child: const Text('Download'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 4.0,
-      margin: const EdgeInsets.all(12.0),
+      margin: const EdgeInsets.all(8.0),
       shape: Styles().getRectangleBorder(context),
       child: Column(
         children: [
@@ -53,7 +93,9 @@ class FeedCard extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                FilledButton(onPressed: () {}, child: const Text('More')),
+                FilledButton(
+                    onPressed: () => _dialogBuilder(context),
+                    child: const Text('More')),
               ],
             ),
           ),

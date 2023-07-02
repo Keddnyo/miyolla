@@ -117,18 +117,16 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
                             },
                           ),
                         ),
+                        const SizedBox(height: 8.0),
                         Tooltip(
                           message: dials[index].title,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              dials[index].title,
-                              maxLines: 1,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          child: Text(
+                            dials[index].title,
+                            maxLines: 1,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
