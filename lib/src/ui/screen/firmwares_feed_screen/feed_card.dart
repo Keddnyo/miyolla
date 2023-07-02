@@ -27,7 +27,7 @@ class FeedCard extends StatelessWidget {
               if (firmware.baseResourceVersion != null)
                 Text('BaseRES: ${firmware.baseResourceVersion}'),
               if (firmware.fontVersion != null)
-                Text('BaseRES: ${firmware.fontVersion}'),
+                Text('FT: ${firmware.fontVersion}'),
               if (firmware.gpsVersion != null)
                 Text('BaseRES: ${firmware.gpsVersion}'),
               const SizedBox(height: 24),
