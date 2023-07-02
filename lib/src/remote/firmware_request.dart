@@ -73,6 +73,9 @@ class FirmwareRequest {
 
     Map<String, dynamic> jsonResponse = jsonDecode(responseBody);
 
-    return jsonResponse.toFirmwareResponse(deviceName: firmware.deviceName);
+    return jsonResponse.toFirmwareResponse(
+      deviceName: firmware.deviceName,
+      firmwareApp: firmware.firmwareApp,
+    );
   }
 }

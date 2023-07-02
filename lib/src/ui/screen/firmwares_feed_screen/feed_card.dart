@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:miyolla/src/app/model/firmwares/firmware_request_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/model/firmwares/firmware_response_model.dart';
 import '../../../common/constants.dart';
@@ -40,7 +42,13 @@ class FeedCard extends StatelessWidget {
             ),
             FilledButton(
               child: const Text('Download'),
-              onPressed: () => Navigator.of(context).pop(),
+              onPressed: () {
+                launchUrl(
+                  Uri.parse(firmware.firmwareUrl!),
+                  mode: LaunchMode.externalApplication,
+                );
+                Navigator.of(context).pop();
+              },
             ),
           ],
         );
@@ -66,7 +74,11 @@ class FeedCard extends StatelessWidget {
               subtitle: Text(
                 firmware.firmwareVersion ?? 'Unknown firmware version',
               ),
-              leading: Image.asset('images/zepp.png'),
+              leading: Image.asset(
+                firmware.firmwareApp == FirmwareRequestApp.zeppLife
+                    ? 'images/zepp_life.png'
+                    : 'images/zepp.png',
+              ),
             ),
           ),
           Divider(
