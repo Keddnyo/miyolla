@@ -4,7 +4,7 @@ import 'package:miyolla/src/ui/screen/apps_screen/apps_screen.dart';
 import 'package:miyolla/src/ui/screen/dials_screen/dials_screen.dart';
 
 import '../constants.dart';
-import '../../ui/screen/feed_screen/feed_screen.dart';
+import '../../ui/screen/firmwares_feed_screen/feed_screen.dart';
 import 'app_theme.dart';
 
 class MiYollaApp extends StatelessWidget {
