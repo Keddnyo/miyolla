@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:miyolla/src/app/navigation/routes.dart';
 import 'package:miyolla/src/ui/screen/apps_screen/apps_screen.dart';
 import 'package:miyolla/src/ui/screen/dials_screen/dials_screen.dart';
@@ -23,6 +24,9 @@ class MiYollaApp extends StatelessWidget {
         Routes.dials: (_) => const DialsScreen(),
         Routes.apps: (_) => const AppsScreen(),
       },
+      localizationsDelegates: const [
+        LocaleNamesLocalizationsDelegate(),
+      ],
     );
   }
 }
