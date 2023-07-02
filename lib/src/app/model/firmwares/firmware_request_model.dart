@@ -4,10 +4,12 @@ class FirmwareRequestModel {
     required this.deviceSource,
     required this.productionSource,
     required this.firmwareApp,
+    this.firmwareLocale = FirmwareRequestLocale.en,
   });
 
   final String deviceName, deviceSource, productionSource;
   final FirmwareRequestApp firmwareApp;
+  final FirmwareRequestLocale firmwareLocale;
 
   static List<FirmwareRequestModel> get list => [
         FirmwareRequestModel(
@@ -37,4 +39,12 @@ enum FirmwareRequestApp {
 
   const FirmwareRequestApp(this.appname, this.appVersion);
   final String appname, appVersion;
+}
+
+enum FirmwareRequestLocale {
+  en('en_US', 'US'),
+  zh('zh_CH', 'CH');
+
+  const FirmwareRequestLocale(this.lang, this.country);
+  final String lang, country;
 }
