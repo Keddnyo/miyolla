@@ -42,10 +42,7 @@ class _FeedCardState extends State<FeedCard> {
         }
 
         return FirmwareInfoScreen(
-          firmware: widget.firmware,
-          releaseNotes: releaseNotes,
-          languages: languages,
-        );
+            firmware: widget.firmware, languages: languages);
       },
     );
   }
@@ -71,14 +68,10 @@ class _FeedCardState extends State<FeedCard> {
               leading: SizedBox(
                 width: 48,
                 height: 48,
-                child: Card(
-                  shape: Styles.getRectangleBorder(context),
-                  child: Padding(
-                    padding: const EdgeInsets.all(6.0),
-                    child: Image.asset(
-                      'images/${widget.firmware.deviceIconName}.png',
-                    ),
-                  ),
+                child: Image.asset(
+                  'images/${widget.firmware.deviceIconName}.png',
+                  height: 36,
+                  width: 36,
                 ),
               ),
             ),

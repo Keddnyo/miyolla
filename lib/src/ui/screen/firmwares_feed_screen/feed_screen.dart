@@ -55,6 +55,7 @@ class _FeedScreenState extends State<FeedScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.feedTitle),
+        centerTitle: true,
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
       ),

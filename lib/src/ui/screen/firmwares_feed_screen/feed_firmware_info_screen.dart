@@ -9,12 +9,10 @@ class FirmwareInfoScreen extends StatelessWidget {
   const FirmwareInfoScreen({
     super.key,
     required this.firmware,
-    required this.releaseNotes,
     required this.languages,
   });
 
   final FirmwareResponseModel firmware;
-  final String releaseNotes;
   final List languages;
 
   @override
@@ -44,6 +42,8 @@ class FirmwareInfoScreen extends StatelessWidget {
             firmware.deviceName,
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
+          centerTitle: true,
+          shadowColor: Colors.black,
         ),
         body: ListView(
           children: [
@@ -53,23 +53,12 @@ class FirmwareInfoScreen extends StatelessWidget {
                 shape: Styles.getRectangleBorder(context),
                 elevation: 8.0,
                 child: ListTile(
-                  title: Text(
-                    AppLocalizations.of(context)!.firmwareReleaseNotes,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  subtitle: Text(releaseNotes),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Card(
-                shape: Styles.getRectangleBorder(context),
-                elevation: 8.0,
-                child: ListTile(
-                  title: Text(
-                    AppLocalizations.of(context)!.firmwareVersion,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  title: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      AppLocalizations.of(context)!.firmwareVersion,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                   subtitle: Wrap(
                     children: [
@@ -111,9 +100,12 @@ class FirmwareInfoScreen extends StatelessWidget {
                   shape: Styles.getRectangleBorder(context),
                   elevation: 8.0,
                   child: ListTile(
-                    title: Text(
-                      AppLocalizations.of(context)!.firmwareLanguages,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    title: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        AppLocalizations.of(context)!.firmwareLanguages,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     ),
                     subtitle: Wrap(
                       children: [
@@ -130,9 +122,12 @@ class FirmwareInfoScreen extends StatelessWidget {
                 shape: Styles.getRectangleBorder(context),
                 elevation: 8.0,
                 child: ListTile(
-                  title: Text(
-                    AppLocalizations.of(context)!.firmwareMetaData,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  title: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      AppLocalizations.of(context)!.firmwareMetaData,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   ),
                   subtitle: Wrap(
                     children: [

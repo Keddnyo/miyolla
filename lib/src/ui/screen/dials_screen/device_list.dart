@@ -14,6 +14,7 @@ class DialsDeviceList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.dialsChooseWearable),
+        centerTitle: true,
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
       ),
