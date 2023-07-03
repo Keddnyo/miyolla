@@ -1,15 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:miyolla/src/app/model/firmwares/firmware_request_model.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/model/firmwares/firmware_response_model.dart';
 import '../../../common/constants.dart';
+import 'feed_firmware_info_screen.dart';
 
-class FeedCard extends StatelessWidget {
+class FeedCard extends StatefulWidget {
   const FeedCard({super.key, required this.firmware});
 
   final FirmwareResponseModel firmware;
+
+  @override
+  State<FeedCard> createState() => _FeedCardState();
+}
+
+class _FeedCardState extends State<FeedCard> {
+  late final String releaseNotes;
+
+  @override
+  void initState() {
+    super.initState();
+    releaseNotes = widget.firmware.changeLog?.split('###summary###').first ??
+        '- Fix some known issues';
+  }
 
   Future<void> _showAboutDialog(BuildContext context) {
     return showDialog<void>(
@@ -17,85 +31,20 @@ class FeedCard extends StatelessWidget {
       builder: (BuildContext context) {
         var languages = [];
 
-        if (firmware.lang != null) {
-          for (var languageCode in firmware.lang!.split(',')) {
-            var languageName = LocaleNames.of(context)!.nameOf(languageCode);
-            languages.add(languageName);
+        if (widget.firmware.lang != null) {
+          for (var languageCode in widget.firmware.lang!.split(',')) {
+            String? languageName =
+                LocaleNames.of(context)!.nameOf(languageCode);
+            if (languageName != null) {
+              languages.add(languageName);
+            }
           }
         }
 
-        return AlertDialog(
-          scrollable: true,
-          title: Text(
-            firmware.deviceName,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-          icon: const Icon(Icons.info),
-          content: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 384),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Wrap(
-                  children: [
-                    _FirmwareChip(
-                      label: 'deviceSource: ${firmware.deviceSource}',
-                    ),
-                    _FirmwareChip(
-                      label: 'productionSource: ${firmware.productionSource}',
-                    ),
-                  ],
-                ),
-                const Divider(),
-                Wrap(
-                  children: [
-                    if (firmware.firmwareVersion != null &&
-                        firmware.firmwareVersion!.isNotEmpty)
-                      _FirmwareChip(
-                        label: 'Firmware: ${firmware.firmwareVersion}',
-                      ),
-                    if (firmware.resourceVersion != null)
-                      _FirmwareChip(
-                        label: 'Resource: ${firmware.resourceVersion}',
-                      ),
-                    if (firmware.baseResourceVersion != null)
-                      _FirmwareChip(
-                        label: 'Base resource: ${firmware.baseResourceVersion}',
-                      ),
-                    if (firmware.fontVersion != null)
-                      _FirmwareChip(
-                        label: 'Font: ${firmware.fontVersion}',
-                      ),
-                    if (firmware.gpsVersion != null &&
-                        firmware.gpsVersion!.isNotEmpty)
-                      _FirmwareChip(
-                        label: 'GPS: ${firmware.gpsVersion}',
-                      ),
-                  ],
-                ),
-                const Divider(),
-                if (languages.isNotEmpty)
-                  Wrap(
-                    children: [
-                      for (String? language in languages)
-                        _FirmwareChip(label: language ?? '<?>')
-                    ],
-                  ),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: FilledButton(
-                child: const Text('Close'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ),
-          ],
+        return FirmwareInfoScreen(
+          firmware: widget.firmware,
+          releaseNotes: releaseNotes,
+          languages: languages,
         );
       },
     );
@@ -113,20 +62,16 @@ class FeedCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 8),
             child: ListTile(
               title: Text(
-                firmware.deviceName,
+                widget.firmware.deviceName,
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               subtitle: Text(
-                firmware.firmwareVersion ?? 'Unknown firmware version',
+                widget.firmware.firmwareVersion ?? 'Unknown firmware version',
               ),
               leading: Image.asset(
-                firmware.firmwareApp == FirmwareRequestApp.zeppLife
+                widget.firmware.firmwareApp == FirmwareRequestApp.zeppLife
                     ? 'images/zepp_life.png'
                     : 'images/zepp.png',
-              ),
-              trailing: IconButton(
-                onPressed: () => _showAboutDialog(context),
-                icon: const Icon(Icons.info),
               ),
             ),
           ),
@@ -142,10 +87,7 @@ class FeedCard extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            subtitle: Text(
-              firmware.changeLog?.split('###summary###').first ??
-                  '- Fix some known issues',
-            ),
+            subtitle: Text(releaseNotes),
           ),
           Divider(
             color: Theme.of(context).colorScheme.onBackground,
@@ -158,11 +100,8 @@ class FeedCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 FilledButton(
-                  onPressed: () => launchUrl(
-                    Uri.parse(firmware.firmwareUrl!),
-                    mode: LaunchMode.externalApplication,
-                  ),
-                  child: const Text('Download'),
+                  onPressed: () => _showAboutDialog(context),
+                  child: const Text('Show more'),
                 ),
               ],
             ),
@@ -171,16 +110,4 @@ class FeedCard extends StatelessWidget {
       ),
     );
   }
-}
-
-class _FirmwareChip extends StatelessWidget {
-  const _FirmwareChip({required this.label});
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Chip(label: Text(label)),
-      );
 }

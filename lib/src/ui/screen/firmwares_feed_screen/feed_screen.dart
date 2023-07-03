@@ -16,7 +16,6 @@ class FeedScreen extends StatefulWidget {
 }
 
 class _FeedScreenState extends State<FeedScreen> {
-  // static const _pageSize = 1;
   final PagingController<int, FirmwareResponseModel> _pagingController =
       PagingController(firstPageKey: 0);
 
@@ -54,8 +53,7 @@ class _FeedScreenState extends State<FeedScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Firmwares'),
-        centerTitle: true,
+        title: const Text('Feed'),
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
       ),
@@ -66,7 +64,7 @@ class _FeedScreenState extends State<FeedScreen> {
           itemBuilder: (context, item, index) {
             return Align(
               child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 640),
+                constraints: const BoxConstraints(maxWidth: 768),
                 child: FeedCard(firmware: item),
               ),
             );

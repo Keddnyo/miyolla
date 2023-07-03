@@ -11,27 +11,41 @@ class FeedNavigationDrawer extends StatelessWidget {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text(Constants.appName),
-          content: const Text('Created by ${Constants.appDeveloper}'),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Close'),
-              onPressed: () => Navigator.of(context).pop(),
+        return AboutDialog(
+          applicationName: Constants.appName,
+          applicationVersion: Constants.appDescription,
+          applicationIcon:
+              Image.asset('images/miyolla.png', height: 54, width: 54),
+          children: [
+            const Text(
+              'This app is designed for Huami wearables.',
             ),
-            FilledButton(
-              child: const Text('GitHub'),
-              onPressed: () {
-                launchUrl(
-                  Uri.https(
-                    'github.com',
-                    '/${Constants.appDeveloper}/${Constants.appName}',
-                  ),
-                  mode: LaunchMode.externalApplication,
-                );
-                Navigator.of(context).pop();
-              },
+            const Text(
+              'There are three destinations can be found in navigation drawer.',
             ),
+            const Text(
+              'The first one is firmwares feed. There you can download firmwares for different wearables.',
+            ),
+            const Text(
+              'The second one is dials. There you can discover varius watch faces.',
+            ),
+            const Text(
+              'The third one is apps. There you can find an Android app for your wearable.',
+            ),
+            const SizedBox(height: 12),
+            const Text(
+              'Created by Keddnyo, 2023',
+            ),
+            const SizedBox(height: 12),
+            OutlinedButton(
+                onPressed: () {
+                  launchUrl(
+                    Uri.parse(
+                        'https://github.com/${Constants.appDeveloper}/${Constants.appName}'),
+                    mode: LaunchMode.externalApplication,
+                  );
+                },
+                child: const Text('GitHub'))
           ],
         );
       },
@@ -74,15 +88,15 @@ class FeedNavigationDrawer extends StatelessWidget {
         ),
         NavigationDrawerDestination(
           icon: Icon(Icons.memory),
-          label: Text('Firmwares'),
+          label: Text('Feed'),
         ),
         NavigationDrawerDestination(
           icon: Icon(Icons.palette_outlined),
-          label: Text('Watch Faces'),
+          label: Text('Dials'),
         ),
         NavigationDrawerDestination(
           icon: Icon(Icons.widgets_outlined),
-          label: Text('Applications'),
+          label: Text('Apps'),
         ),
         Divider(),
         NavigationDrawerDestination(

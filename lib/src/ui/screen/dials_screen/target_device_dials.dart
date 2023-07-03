@@ -41,7 +41,6 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.dialModel.deviceName),
-        centerTitle: true,
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
       ),
