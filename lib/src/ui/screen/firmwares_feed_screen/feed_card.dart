@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/model/firmwares/firmware_response_model.dart';
 import '../../../common/constants.dart';
@@ -49,6 +50,24 @@ class _FeedCardState extends State<FeedCard> {
 
   @override
   Widget build(BuildContext context) {
+    List<String> firmwareLinks = [];
+
+    if (widget.firmware.firmwareUrl != null) {
+      firmwareLinks.add(widget.firmware.firmwareUrl!);
+    }
+    if (widget.firmware.resourceUrl != null) {
+      firmwareLinks.add(widget.firmware.resourceUrl!);
+    }
+    if (widget.firmware.baseResourceUrl != null) {
+      firmwareLinks.add(widget.firmware.baseResourceUrl!);
+    }
+    if (widget.firmware.fontUrl != null) {
+      firmwareLinks.add(widget.firmware.fontUrl!);
+    }
+    if (widget.firmware.gpsUrl != null) {
+      firmwareLinks.add(widget.firmware.gpsUrl!);
+    }
+
     return Card(
       elevation: 4.0,
       margin: const EdgeInsets.all(8.0),
@@ -100,9 +119,21 @@ class _FeedCardState extends State<FeedCard> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                FilledButton(
+                OutlinedButton(
                   onPressed: () => _showAboutDialog(context),
-                  child: Text(AppLocalizations.of(context)!.firmwareShowMore),
+                  child: const Icon(Icons.info_outlined),
+                ),
+                const SizedBox(width: 12.0),
+                FilledButton(
+                  onPressed: () {
+                    for (var url in firmwareLinks) {
+                      launchUrl(
+                        Uri.parse(url),
+                        mode: LaunchMode.externalApplication,
+                      );
+                    }
+                  },
+                  child: Text(AppLocalizations.of(context)!.firmwareDownload),
                 ),
               ],
             ),

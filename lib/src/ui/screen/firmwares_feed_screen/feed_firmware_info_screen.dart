@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/model/firmwares/firmware_response_model.dart';
 import '../../../common/constants.dart';
@@ -17,24 +16,6 @@ class FirmwareInfoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> firmwareLinks = [];
-
-    if (firmware.firmwareUrl != null) {
-      firmwareLinks.add(firmware.firmwareUrl!);
-    }
-    if (firmware.resourceUrl != null) {
-      firmwareLinks.add(firmware.resourceUrl!);
-    }
-    if (firmware.baseResourceUrl != null) {
-      firmwareLinks.add(firmware.baseResourceUrl!);
-    }
-    if (firmware.fontUrl != null) {
-      firmwareLinks.add(firmware.fontUrl!);
-    }
-    if (firmware.gpsUrl != null) {
-      firmwareLinks.add(firmware.gpsUrl!);
-    }
-
     return Dialog.fullscreen(
       child: Scaffold(
         appBar: AppBar(
@@ -148,21 +129,7 @@ class FirmwareInfoScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 128),
           ],
-        ),
-        floatingActionButton: FloatingActionButton.extended(
-          shape: Styles.getRectangleBorder(context),
-          onPressed: () {
-            for (var url in firmwareLinks) {
-              launchUrl(
-                Uri.parse(url),
-                mode: LaunchMode.externalApplication,
-              );
-            }
-          },
-          icon: const Icon(Icons.download),
-          label: Text(AppLocalizations.of(context)!.firmwareDownload),
         ),
       ),
     );
