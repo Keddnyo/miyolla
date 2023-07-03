@@ -4,7 +4,6 @@ import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/model/firmwares/firmware_response_model.dart';
-import '../../../common/constants.dart';
 import 'feed_firmware_info_screen.dart';
 
 class FeedCard extends StatefulWidget {
