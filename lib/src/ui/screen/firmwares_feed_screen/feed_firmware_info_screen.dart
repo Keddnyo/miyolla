@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../app/model/firmwares/firmware_response_model.dart';
-import '../../../common/constants.dart';
 
 class FirmwareInfoScreen extends StatelessWidget {
   const FirmwareInfoScreen({
@@ -31,11 +30,10 @@ class FirmwareInfoScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: Card(
-                shape: Styles.getRectangleBorder(context),
-                elevation: 8.0,
+                elevation: 4.0,
                 child: ListTile(
                   title: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Text(
                       AppLocalizations.of(context)!.firmwareVersion,
                       style: const TextStyle(fontWeight: FontWeight.bold),
@@ -78,11 +76,10 @@ class FirmwareInfoScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Card(
-                  shape: Styles.getRectangleBorder(context),
-                  elevation: 8.0,
+                  elevation: 4.0,
                   child: ListTile(
                     title: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(4.0),
                       child: Text(
                         AppLocalizations.of(context)!.firmwareLanguages,
                         style: const TextStyle(fontWeight: FontWeight.bold),
@@ -100,11 +97,10 @@ class FirmwareInfoScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: Card(
-                shape: Styles.getRectangleBorder(context),
-                elevation: 8.0,
+                elevation: 4.0,
                 child: ListTile(
                   title: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(4.0),
                     child: Text(
                       AppLocalizations.of(context)!.firmwareMetaData,
                       style: const TextStyle(fontWeight: FontWeight.bold),

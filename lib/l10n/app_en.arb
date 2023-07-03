@@ -5,7 +5,7 @@
   "appsTitle": "Apps",
   "aboutTitle": "About",
   "aboutText": "This app is designed for Huami wearables.\nThere are three destinations can be found in navigation drawer.\nThe first one is firmwares feed. There you can download firmwares for different wearables.\nThe second one is dials. There you can discover varius watch faces.\nThe third one is apps. There you can find an Android app for your wearable.",
-  "appCredits": "Created by {developer}, 2023",
+  "appCredits": "(c) Created by {developer}, 2023",
   "@appCredits": {
     "placeholders": {
       "developer": {
@@ -16,7 +16,7 @@
   "firmwareReleaseNotes": "Release notes:",
   "firmwareVersion": "Firmware version:",
   "firmwareLanguages": "Languages:",
-  "firmwareMetaData": "Meta-data:",
+  "firmwareMetaData": "Metadata:",
   "firmwareDownload": "Download",
   "firmware": "Firmware",
   "resource": "Resource",

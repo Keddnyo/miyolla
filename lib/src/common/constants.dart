@@ -9,13 +9,3 @@ class Dimens {
   static const BorderRadius borderRadius =
       BorderRadius.all(Radius.circular(16.0));
 }
-
-class Styles {
-  static getRectangleBorder(BuildContext context) => RoundedRectangleBorder(
-        side: BorderSide(
-          width: 0.5,
-          color: Theme.of(context).colorScheme.onBackground,
-        ),
-        borderRadius: Dimens.borderRadius,
-      );
-}

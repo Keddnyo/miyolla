@@ -30,13 +30,6 @@ class AppsScreen extends StatelessWidget {
               children: [
                 Card(
                   elevation: 4.0,
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      width: 0.5,
-                      color: Theme.of(context).colorScheme.onBackground,
-                    ),
-                    borderRadius: Dimens.borderRadius,
-                  ),
                   margin: const EdgeInsets.all(4.0),
                   child: InkWell(
                     onTap: () {
