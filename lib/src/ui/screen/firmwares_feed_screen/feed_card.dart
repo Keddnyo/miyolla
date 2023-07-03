@@ -128,6 +128,26 @@ class _FeedCardState extends State<FeedCard> {
               ),
             ),
           ),
+          Divider(
+            color: Theme.of(context).colorScheme.onBackground,
+            thickness: 0.5,
+            height: 0.5,
+          ),
+          ListTile(
+            title: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Text(
+                AppLocalizations.of(context)!.firmwareReleaseNotes,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            subtitle: Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Text(releaseNotes),
+            ),
+          ),
           if (languages.isNotEmpty)
             Divider(
               color: Theme.of(context).colorScheme.onBackground,
@@ -152,26 +172,6 @@ class _FeedCardState extends State<FeedCard> {
                 ],
               ),
             ),
-          Divider(
-            color: Theme.of(context).colorScheme.onBackground,
-            thickness: 0.5,
-            height: 0.5,
-          ),
-          ListTile(
-            title: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Text(
-                AppLocalizations.of(context)!.firmwareReleaseNotes,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            subtitle: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Text(releaseNotes),
-            ),
-          ),
           Divider(
             color: Theme.of(context).colorScheme.onBackground,
             thickness: 0.5,
