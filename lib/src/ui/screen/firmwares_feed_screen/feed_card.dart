@@ -63,50 +63,14 @@ class _FeedCardState extends State<FeedCard> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: ListTile(
-              title: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Tooltip(
-                  message:
-                      'deviceSource: ${widget.firmware.deviceSource}, productionSource: ${widget.firmware.productionSource}',
-                  child: Text(
-                    widget.firmware.deviceName,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-              subtitle: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    if (widget.firmware.firmwareVersion != null &&
-                        widget.firmware.firmwareVersion!.isNotEmpty)
-                      _FirmwareChip(
-                        label:
-                            '${AppLocalizations.of(context)!.firmware}: ${widget.firmware.firmwareVersion}',
-                      ),
-                    if (widget.firmware.resourceVersion != null)
-                      _FirmwareChip(
-                        label:
-                            '${AppLocalizations.of(context)!.resource}: ${widget.firmware.resourceVersion}',
-                      ),
-                    if (widget.firmware.baseResourceVersion != null)
-                      _FirmwareChip(
-                        label:
-                            '${AppLocalizations.of(context)!.baseResource}: ${widget.firmware.baseResourceVersion}',
-                      ),
-                    if (widget.firmware.fontVersion != null)
-                      _FirmwareChip(
-                        label:
-                            '${AppLocalizations.of(context)!.font}: ${widget.firmware.fontVersion}',
-                      ),
-                    if (widget.firmware.gpsVersion != null &&
-                        widget.firmware.gpsVersion!.isNotEmpty)
-                      _FirmwareChip(
-                        label: 'GPS: ${widget.firmware.gpsVersion}',
-                      ),
-                  ],
+              title: Tooltip(
+                message:
+                    'deviceSource: ${widget.firmware.deviceSource}, productionSource: ${widget.firmware.productionSource}',
+                child: Text(
+                  widget.firmware.deviceName,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
               leading: Container(
@@ -128,6 +92,54 @@ class _FeedCardState extends State<FeedCard> {
               ),
             ),
           ),
+          if (languages.isNotEmpty)
+            Divider(
+              color: Theme.of(context).colorScheme.onBackground,
+              thickness: 0.5,
+              height: 0.5,
+            ),
+          if (languages.isNotEmpty)
+            ListTile(
+              title: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                  AppLocalizations.of(context)!.firmwareVersion,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              subtitle: Wrap(
+                children: [
+                  if (widget.firmware.firmwareVersion != null &&
+                      widget.firmware.firmwareVersion!.isNotEmpty)
+                    _FirmwareChip(
+                      label:
+                          '${AppLocalizations.of(context)!.firmware}: ${widget.firmware.firmwareVersion}',
+                    ),
+                  if (widget.firmware.resourceVersion != null)
+                    _FirmwareChip(
+                      label:
+                          '${AppLocalizations.of(context)!.resource}: ${widget.firmware.resourceVersion}',
+                    ),
+                  if (widget.firmware.baseResourceVersion != null)
+                    _FirmwareChip(
+                      label:
+                          '${AppLocalizations.of(context)!.baseResource}: ${widget.firmware.baseResourceVersion}',
+                    ),
+                  if (widget.firmware.fontVersion != null)
+                    _FirmwareChip(
+                      label:
+                          '${AppLocalizations.of(context)!.font}: ${widget.firmware.fontVersion}',
+                    ),
+                  if (widget.firmware.gpsVersion != null &&
+                      widget.firmware.gpsVersion!.isNotEmpty)
+                    _FirmwareChip(
+                      label: 'GPS: ${widget.firmware.gpsVersion}',
+                    ),
+                ],
+              ),
+            ),
           Divider(
             color: Theme.of(context).colorScheme.onBackground,
             thickness: 0.5,
@@ -148,30 +160,6 @@ class _FeedCardState extends State<FeedCard> {
               child: Text(releaseNotes),
             ),
           ),
-          if (languages.isNotEmpty)
-            Divider(
-              color: Theme.of(context).colorScheme.onBackground,
-              thickness: 0.5,
-              height: 0.5,
-            ),
-          if (languages.isNotEmpty)
-            ListTile(
-              title: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Text(
-                  AppLocalizations.of(context)!.firmwareLanguages,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              subtitle: Wrap(
-                children: [
-                  for (String language in languages)
-                    _FirmwareChip(label: language)
-                ],
-              ),
-            ),
           Divider(
             color: Theme.of(context).colorScheme.onBackground,
             thickness: 0.5,
