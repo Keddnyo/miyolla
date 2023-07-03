@@ -88,7 +88,7 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
             itemCount: dials.length,
             itemBuilder: (context, index) {
               return Card(
-                elevation: 4.0,
+                elevation: 2.0,
                 margin: const EdgeInsets.all(8.0),
                 child: InkWell(
                   borderRadius: Dimens.borderRadius,

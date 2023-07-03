@@ -69,7 +69,7 @@ class _FeedCardState extends State<FeedCard> {
 
     return Card(
       margin: const EdgeInsets.all(8.0),
-      elevation: 4.0,
+      elevation: 2.0,
       child: Column(
         children: [
           Padding(

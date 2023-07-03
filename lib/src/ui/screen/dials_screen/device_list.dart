@@ -31,7 +31,7 @@ class DialsDeviceList extends StatelessWidget {
                   horizontal: 12.0,
                 ),
                 child: Card(
-                  elevation: 4.0,
+                  elevation: 2.0,
                   child: ListTile(
                     title: Text(
                       dial.deviceName,

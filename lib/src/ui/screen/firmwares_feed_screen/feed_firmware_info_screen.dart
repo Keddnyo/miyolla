@@ -30,7 +30,6 @@ class FirmwareInfoScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: Card(
-                elevation: 4.0,
                 child: ListTile(
                   title: Padding(
                     padding: const EdgeInsets.all(4.0),
@@ -76,7 +75,6 @@ class FirmwareInfoScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Card(
-                  elevation: 4.0,
                   child: ListTile(
                     title: Padding(
                       padding: const EdgeInsets.all(4.0),
@@ -97,7 +95,7 @@ class FirmwareInfoScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: Card(
-                elevation: 4.0,
+                elevation: 2.0,
                 child: ListTile(
                   title: Padding(
                     padding: const EdgeInsets.all(4.0),
