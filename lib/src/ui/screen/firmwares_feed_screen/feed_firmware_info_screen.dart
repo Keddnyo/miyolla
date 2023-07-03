@@ -18,6 +18,24 @@ class FirmwareInfoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> firmwareLinks = [];
+
+    if (firmware.firmwareUrl != null) {
+      firmwareLinks.add(firmware.firmwareUrl!);
+    }
+    if (firmware.resourceUrl != null) {
+      firmwareLinks.add(firmware.resourceUrl!);
+    }
+    if (firmware.baseResourceUrl != null) {
+      firmwareLinks.add(firmware.baseResourceUrl!);
+    }
+    if (firmware.fontUrl != null) {
+      firmwareLinks.add(firmware.fontUrl!);
+    }
+    if (firmware.gpsUrl != null) {
+      firmwareLinks.add(firmware.gpsUrl!);
+    }
+
     return Dialog.fullscreen(
       child: Scaffold(
         appBar: AppBar(
@@ -139,10 +157,14 @@ class FirmwareInfoScreen extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton.extended(
           shape: Styles().getRectangleBorder(context),
-          onPressed: () => launchUrl(
-            Uri.parse(firmware.firmwareUrl!),
-            mode: LaunchMode.externalApplication,
-          ),
+          onPressed: () {
+            for (var url in firmwareLinks) {
+              launchUrl(
+                Uri.parse(url),
+                mode: LaunchMode.externalApplication,
+              );
+            }
+          },
           icon: const Icon(Icons.download),
           label: const Text('Download'),
         ),
