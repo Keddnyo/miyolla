@@ -3,7 +3,6 @@ import 'firmware_request_model.dart';
 class FirmwareResponseModel {
   FirmwareResponseModel({
     required this.deviceName,
-    required this.deviceIconName,
     required this.firmwareApp,
     required this.deviceSource,
     required this.productionSource,
@@ -22,7 +21,6 @@ class FirmwareResponseModel {
   });
 
   String deviceName;
-  String deviceIconName;
   FirmwareRequestApp firmwareApp;
   int deviceSource, productionSource;
   String? firmwareVersion, firmwareUrl;
@@ -40,12 +38,10 @@ class FirmwareResponseModel {
 extension JsonToFirmwareResponse on Map<String, dynamic> {
   FirmwareResponseModel toFirmwareResponse({
     required String deviceName,
-    required String deviceIconName,
     required FirmwareRequestApp firmwareApp,
   }) =>
       FirmwareResponseModel(
         deviceName: deviceName,
-        deviceIconName: deviceIconName,
         firmwareApp: firmwareApp,
         deviceSource: this['deviceSource'],
         productionSource: this['productionSource'],
