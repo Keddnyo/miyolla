@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:miyolla/src/app/navigation/routes.dart';
 import 'package:miyolla/src/ui/screen/apps_screen/apps_screen.dart';
@@ -25,7 +27,13 @@ class MiYollaApp extends StatelessWidget {
         Routes.apps: (_) => const AppsScreen(),
       },
       localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
         LocaleNamesLocalizationsDelegate(),
+      ],
+      supportedLocales: const [
+        Locale('en', 'US'),
+        Locale('ru', 'RU'),
       ],
     );
   }

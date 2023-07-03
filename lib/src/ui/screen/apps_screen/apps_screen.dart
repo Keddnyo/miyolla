@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:miyolla/src/app/model/applications/app_model.dart';
 import 'package:miyolla/src/app/utils/extensions/system_overlay_extensions.dart';
@@ -12,7 +13,7 @@ class AppsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Apps'),
+        title: Text(AppLocalizations.of(context)!.appsTitle),
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
       ),

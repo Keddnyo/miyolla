@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:miyolla/src/app/navigation/routes.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../common/constants.dart';
+import 'feed_app_about_dialog.dart';
 
 class FeedNavigationDrawer extends StatelessWidget {
   const FeedNavigationDrawer({super.key});
@@ -11,43 +12,7 @@ class FeedNavigationDrawer extends StatelessWidget {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        return AboutDialog(
-          applicationName: Constants.appName,
-          applicationVersion: Constants.appDescription,
-          applicationIcon:
-              Image.asset('images/miyolla.png', height: 54, width: 54),
-          children: [
-            const Text(
-              'This app is designed for Huami wearables.',
-            ),
-            const Text(
-              'There are three destinations can be found in navigation drawer.',
-            ),
-            const Text(
-              'The first one is firmwares feed. There you can download firmwares for different wearables.',
-            ),
-            const Text(
-              'The second one is dials. There you can discover varius watch faces.',
-            ),
-            const Text(
-              'The third one is apps. There you can find an Android app for your wearable.',
-            ),
-            const SizedBox(height: 12),
-            const Text(
-              'Created by Keddnyo, 2023',
-            ),
-            const SizedBox(height: 12),
-            OutlinedButton(
-                onPressed: () {
-                  launchUrl(
-                    Uri.parse(
-                        'https://github.com/${Constants.appDeveloper}/${Constants.appName}'),
-                    mode: LaunchMode.externalApplication,
-                  );
-                },
-                child: const Text('GitHub'))
-          ],
-        );
+        return const AppAboutDialog();
       },
     );
   }
@@ -70,38 +35,38 @@ class FeedNavigationDrawer extends StatelessWidget {
             break;
         }
       },
-      children: const [
+      children: [
         DrawerHeader(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 Constants.appName,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36.0),
               ),
               Text(
-                Constants.appDescription,
-                style: TextStyle(fontSize: 12.0),
+                AppLocalizations.of(context)!.appDescription,
+                style: const TextStyle(fontSize: 12.0),
               ),
             ],
           ),
         ),
         NavigationDrawerDestination(
-          icon: Icon(Icons.memory),
-          label: Text('Feed'),
+          icon: const Icon(Icons.memory),
+          label: Text(AppLocalizations.of(context)!.feedTitle),
         ),
         NavigationDrawerDestination(
-          icon: Icon(Icons.palette_outlined),
-          label: Text('Dials'),
+          icon: const Icon(Icons.palette_outlined),
+          label: Text(AppLocalizations.of(context)!.dialsTitle),
         ),
         NavigationDrawerDestination(
-          icon: Icon(Icons.widgets_outlined),
-          label: Text('Apps'),
+          icon: const Icon(Icons.widgets_outlined),
+          label: Text(AppLocalizations.of(context)!.appsTitle),
         ),
-        Divider(),
+        const Divider(),
         NavigationDrawerDestination(
-          icon: Icon(Icons.info_outlined),
-          label: Text('About'),
+          icon: const Icon(Icons.info_outlined),
+          label: Text(AppLocalizations.of(context)!.aboutText),
         ),
       ],
     );

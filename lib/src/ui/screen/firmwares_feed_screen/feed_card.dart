@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:miyolla/src/app/model/firmwares/firmware_request_model.dart';
 
@@ -101,7 +102,7 @@ class _FeedCardState extends State<FeedCard> {
               children: [
                 FilledButton(
                   onPressed: () => _showAboutDialog(context),
-                  child: const Text('Show more'),
+                  child: Text(AppLocalizations.of(context)!.firmwareShowMore),
                 ),
               ],
             ),

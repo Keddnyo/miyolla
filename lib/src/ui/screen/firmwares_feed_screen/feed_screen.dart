@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:miyolla/src/app/model/firmwares/firmware_response_model.dart';
 import 'package:miyolla/src/app/utils/extensions/system_overlay_extensions.dart';
@@ -53,7 +54,7 @@ class _FeedScreenState extends State<FeedScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Feed'),
+        title: Text(AppLocalizations.of(context)!.feedTitle),
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
       ),

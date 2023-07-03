@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../app/model/firmwares/firmware_response_model.dart';
@@ -43,9 +44,6 @@ class FirmwareInfoScreen extends StatelessWidget {
             firmware.deviceName,
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
-          actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
-          ],
         ),
         body: ListView(
           children: [
@@ -55,9 +53,9 @@ class FirmwareInfoScreen extends StatelessWidget {
                 shape: Styles().getRectangleBorder(context),
                 elevation: 8.0,
                 child: ListTile(
-                  title: const Text(
-                    'Release notes:',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  title: Text(
+                    AppLocalizations.of(context)!.firmwareReleaseNotes,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(releaseNotes),
                 ),
@@ -69,29 +67,32 @@ class FirmwareInfoScreen extends StatelessWidget {
                 shape: Styles().getRectangleBorder(context),
                 elevation: 8.0,
                 child: ListTile(
-                  title: const Text(
-                    'Firmware version:',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  title: Text(
+                    AppLocalizations.of(context)!.firmwareVersion,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Wrap(
                     children: [
                       if (firmware.firmwareVersion != null &&
                           firmware.firmwareVersion!.isNotEmpty)
                         _FirmwareChip(
-                          label: 'Firmware: ${firmware.firmwareVersion}',
+                          label:
+                              '${AppLocalizations.of(context)!.firmware}: ${firmware.firmwareVersion}',
                         ),
                       if (firmware.resourceVersion != null)
                         _FirmwareChip(
-                          label: 'Resource: ${firmware.resourceVersion}',
+                          label:
+                              '${AppLocalizations.of(context)!.resource}: ${firmware.resourceVersion}',
                         ),
                       if (firmware.baseResourceVersion != null)
                         _FirmwareChip(
                           label:
-                              'Base resource: ${firmware.baseResourceVersion}',
+                              '${AppLocalizations.of(context)!.baseResource}: ${firmware.baseResourceVersion}',
                         ),
                       if (firmware.fontVersion != null)
                         _FirmwareChip(
-                          label: 'Font: ${firmware.fontVersion}',
+                          label:
+                              '${AppLocalizations.of(context)!.font}: ${firmware.fontVersion}',
                         ),
                       if (firmware.gpsVersion != null &&
                           firmware.gpsVersion!.isNotEmpty)
@@ -110,9 +111,9 @@ class FirmwareInfoScreen extends StatelessWidget {
                   shape: Styles().getRectangleBorder(context),
                   elevation: 8.0,
                   child: ListTile(
-                    title: const Text(
-                      'Languages:',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                    title: Text(
+                      AppLocalizations.of(context)!.firmwareLanguages,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: Wrap(
                       children: [
@@ -129,9 +130,9 @@ class FirmwareInfoScreen extends StatelessWidget {
                 shape: Styles().getRectangleBorder(context),
                 elevation: 8.0,
                 child: ListTile(
-                  title: const Text(
-                    'Meta-data:',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  title: Text(
+                    AppLocalizations.of(context)!.firmwareMetaData,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   subtitle: Wrap(
                     children: [
@@ -166,7 +167,7 @@ class FirmwareInfoScreen extends StatelessWidget {
             }
           },
           icon: const Icon(Icons.download),
-          label: const Text('Download'),
+          label: Text(AppLocalizations.of(context)!.firmwareDownload),
         ),
       ),
     );
