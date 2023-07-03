@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_launcher_icons: ^0.13.1
   flutter_localizations:
     sdk: flutter
   flutter_localized_locales: ^2.0.4
@@ -75,3 +76,9 @@ flutter:
     - images/zepp_e_square.png
     - images/zepp_z.png
   generate: true
+
+flutter_launcher_icons:
+  windows:
+    generate: true
+    image_path: "images/miyolla.png"
+    icon_size: 256
