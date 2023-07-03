@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
-import 'package:miyolla/src/app/model/firmwares/firmware_request_model.dart';
 
 import '../../../app/model/firmwares/firmware_response_model.dart';
 import '../../../common/constants.dart';
