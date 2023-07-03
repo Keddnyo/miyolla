@@ -11,7 +11,7 @@ class Dimens {
 }
 
 class Styles {
-  getRectangleBorder(BuildContext context) => RoundedRectangleBorder(
+  static getRectangleBorder(BuildContext context) => RoundedRectangleBorder(
         side: BorderSide(
           width: 0.5,
           color: Theme.of(context).colorScheme.onBackground,

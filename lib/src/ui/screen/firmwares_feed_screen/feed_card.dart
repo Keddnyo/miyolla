@@ -56,7 +56,7 @@ class _FeedCardState extends State<FeedCard> {
     return Card(
       elevation: 4.0,
       margin: const EdgeInsets.all(8.0),
-      shape: Styles().getRectangleBorder(context),
+      shape: Styles.getRectangleBorder(context),
       child: Column(
         children: [
           Padding(
@@ -67,12 +67,20 @@ class _FeedCardState extends State<FeedCard> {
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               subtitle: Text(
-                widget.firmware.firmwareVersion ?? 'Unknown firmware version',
+                widget.firmware.firmwareVersion!,
               ),
-              leading: Image.asset(
-                widget.firmware.firmwareApp == FirmwareRequestApp.zeppLife
-                    ? 'images/zepp_life.png'
-                    : 'images/zepp.png',
+              leading: SizedBox(
+                width: 48,
+                height: 48,
+                child: Card(
+                  shape: Styles.getRectangleBorder(context),
+                  child: Padding(
+                    padding: const EdgeInsets.all(6.0),
+                    child: Image.asset(
+                      'images/${widget.firmware.deviceIconName}.png',
+                    ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -82,9 +90,9 @@ class _FeedCardState extends State<FeedCard> {
             height: 0.5,
           ),
           ListTile(
-            title: const Text(
-              'Release notes:',
-              style: TextStyle(
+            title: Text(
+              AppLocalizations.of(context)!.firmwareReleaseNotes,
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
               ),
             ),

@@ -1,0 +1,27 @@
+{
+  "appDescription": "Всё-в-одном для устройств Huami",
+  "feedTitle": "Лента",
+  "dialsTitle": "Циферблаты",
+  "appsTitle": "Приложения",
+  "aboutTitle": "О приложении",
+  "aboutText": "Приложение разработано для устройств Huami.\nЗдесь вы можете найти три категории.\nПервая категория - лента. В ней вы можете скачать прошивки.\nВторая категория - циферблаты. В ней вы можете открыть для себя множество циферблатов.\nТретья категория - приложения. В ней вы можете найти приложения-компаньоны для Android.",
+  "appCredits": "Разработал {developer}, 2023",
+  "@appCredits": {
+    "placeholders": {
+      "developer": {
+        "type": "String"
+      }
+    }
+  },
+  "firmwareShowMore": "Подробнее",
+  "firmwareReleaseNotes": "Список изменений:",
+  "firmwareVersion": "Версия прошивки:",
+  "firmwareLanguages": "Языки:",
+  "firmwareMetaData": "Метаданные:",
+  "firmwareDownload": "Скачать",
+  "firmware": "Прошивка",
+  "resource": "Ресурсы",
+  "baseResource": "Баз. ресурсы",
+  "font": "Шрифт",
+  "dialsChooseWearable": "Выберите устройство"
+}

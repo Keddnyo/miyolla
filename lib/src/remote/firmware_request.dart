@@ -80,6 +80,7 @@ class FirmwareRequest {
 
     return jsonResponse.toFirmwareResponse(
       deviceName: firmware.deviceName,
+      deviceIconName: firmware.deviceIconName,
       firmwareApp: firmware.firmwareApp,
     );
   }

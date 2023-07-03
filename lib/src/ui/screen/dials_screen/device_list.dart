@@ -32,7 +32,7 @@ class DialsDeviceList extends StatelessWidget {
                 ),
                 child: Card(
                   elevation: 4.0,
-                  shape: Styles().getRectangleBorder(context),
+                  shape: Styles.getRectangleBorder(context),
                   child: ListTile(
                     title: Text(
                       dial.deviceName,

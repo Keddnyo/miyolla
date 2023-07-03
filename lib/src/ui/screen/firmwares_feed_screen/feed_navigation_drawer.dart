@@ -66,7 +66,7 @@ class FeedNavigationDrawer extends StatelessWidget {
         const Divider(),
         NavigationDrawerDestination(
           icon: const Icon(Icons.info_outlined),
-          label: Text(AppLocalizations.of(context)!.aboutText),
+          label: Text(AppLocalizations.of(context)!.aboutTitle),
         ),
       ],
     );

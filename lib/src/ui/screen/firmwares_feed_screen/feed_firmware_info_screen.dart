@@ -50,7 +50,7 @@ class FirmwareInfoScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: Card(
-                shape: Styles().getRectangleBorder(context),
+                shape: Styles.getRectangleBorder(context),
                 elevation: 8.0,
                 child: ListTile(
                   title: Text(
@@ -64,7 +64,7 @@ class FirmwareInfoScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: Card(
-                shape: Styles().getRectangleBorder(context),
+                shape: Styles.getRectangleBorder(context),
                 elevation: 8.0,
                 child: ListTile(
                   title: Text(
@@ -108,7 +108,7 @@ class FirmwareInfoScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Card(
-                  shape: Styles().getRectangleBorder(context),
+                  shape: Styles.getRectangleBorder(context),
                   elevation: 8.0,
                   child: ListTile(
                     title: Text(
@@ -127,7 +127,7 @@ class FirmwareInfoScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(4.0),
               child: Card(
-                shape: Styles().getRectangleBorder(context),
+                shape: Styles.getRectangleBorder(context),
                 elevation: 8.0,
                 child: ListTile(
                   title: Text(
@@ -157,7 +157,7 @@ class FirmwareInfoScreen extends StatelessWidget {
           ],
         ),
         floatingActionButton: FloatingActionButton.extended(
-          shape: Styles().getRectangleBorder(context),
+          shape: Styles.getRectangleBorder(context),
           onPressed: () {
             for (var url in firmwareLinks) {
               launchUrl(
