@@ -29,6 +29,9 @@ class AppsScreen extends StatelessWidget {
             child: Column(
               children: [
                 Card(
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: Dimens.borderRadius,
+                  ),
                   elevation: 2.0,
                   margin: const EdgeInsets.all(4.0),
                   child: InkWell(

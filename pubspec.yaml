@@ -27,6 +27,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  generate: true
   assets:
     - images/zepp.png
     - images/zepp_life.png
@@ -43,40 +44,8 @@ flutter:
     - images/watch_droid_phone.png
     - images/watch_droid_assistant.png
     - images/huafetcher.png
+    - images/mi_fit.png
     - images/miyolla.png
-    - images/amazfit_ares.png
-    - images/amazfit_band_5.png
-    - images/amazfit_band_7.png
-    - images/amazfit_bip.png
-    - images/amazfit_bip_3.png
-    - images/amazfit_bip_s.png
-    - images/amazfit_bip_u.png
-    - images/amazfit_gtr.png
-    - images/amazfit_gtr_2.png
-    - images/amazfit_gtr_2e.png
-    - images/amazfit_gtr_3.png
-    - images/amazfit_gtr_42.png
-    - images/amazfit_gts.png
-    - images/amazfit_gts_2.png
-    - images/amazfit_gts_2_mini.png
-    - images/amazfit_gts_3.png
-    - images/amazfit_gts_4_mini.png
-    - images/amazfit_neo.png
-    - images/amazfit_smart_scale.png
-    - images/amazfit_t_rex.png
-    - images/amazfit_t_rex_2.png
-    - images/amazfit_t_rex_pro.png
-    - images/amazfit_verge_lite.png
-    - images/amazfit_x.png
-    - images/mi_band_3i.png
-    - images/mi_band_4.png
-    - images/mi_band_5_nfc.png
-    - images/mi_band_6.png
-    - images/mi_band_7.png
-    - images/zepp_e_circle.png
-    - images/zepp_e_square.png
-    - images/zepp_z.png
-  generate: true
 
 flutter_launcher_icons:
   windows:

@@ -6,6 +6,7 @@ class MiYollaTheme {
     lightIsWhite: true,
     useMaterial3: true,
     primary: Colors.indigo,
+    primaryContainer: Colors.indigo,
     secondaryContainer: Colors.indigo,
   ).toTheme;
 
@@ -13,6 +14,7 @@ class MiYollaTheme {
     darkIsTrueBlack: true,
     useMaterial3: true,
     primary: Colors.pink,
+    primaryContainer: Colors.pink,
     secondaryContainer: Colors.pink,
   ).toTheme;
 }

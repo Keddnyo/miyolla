@@ -66,7 +66,7 @@ class _FeedScreenState extends State<FeedScreen> {
           itemBuilder: (context, item, index) {
             return Align(
               child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 768),
+                constraints: const BoxConstraints(maxWidth: 1024),
                 child: FeedCard(firmware: item),
               ),
             );
