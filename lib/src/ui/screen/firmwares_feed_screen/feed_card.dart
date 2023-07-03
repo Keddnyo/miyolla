@@ -59,7 +59,7 @@ class _FeedCardState extends State<FeedCard> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: ListTile(
               title: Text(
                 widget.firmware.deviceName,
