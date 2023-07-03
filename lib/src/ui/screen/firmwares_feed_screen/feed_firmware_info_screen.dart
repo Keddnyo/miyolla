@@ -123,6 +123,12 @@ class FirmwareInfoScreen extends StatelessWidget {
                       _FirmwareChip(
                         label: 'productionSource: ${firmware.productionSource}',
                       ),
+                      _FirmwareChip(
+                        label: 'appname: ${firmware.firmwareApp.appname}',
+                      ),
+                      _FirmwareChip(
+                        label: 'appVersion: ${firmware.firmwareApp.appVersion}',
+                      ),
                     ],
                   ),
                 ),
