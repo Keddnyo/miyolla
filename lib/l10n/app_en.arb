@@ -18,5 +18,6 @@
   "firmware": "Firmware",
   "resource": "Resource",
   "baseResource": "Base resource",
-  "font": "Font"
+  "font": "Font",
+  "close": "Close"
 }

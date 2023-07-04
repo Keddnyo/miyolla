@@ -51,7 +51,7 @@ class _FeedCardState extends State<FeedCard> {
             ],
           ),
           actions: <Widget>[
-            TextButton(
+            FilledButton(
               child: const Text('Close'),
               onPressed: () => Navigator.of(context).pop(),
             ),
@@ -150,7 +150,10 @@ class _FeedCardState extends State<FeedCard> {
               children: [
                 OutlinedButton(
                   onPressed: () => _showAdvancedInfo(context),
-                  child: const Icon(Icons.info_outlined),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Icon(Icons.info_outlined),
+                  ),
                 ),
                 const SizedBox(width: 12),
                 FilledButton(
