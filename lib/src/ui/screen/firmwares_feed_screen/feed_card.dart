@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:miyolla/src/app/model/downloader/download_file_type.dart';
 import 'package:miyolla/src/app/model/firmwares/firmware_request_model.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:miyolla/src/remote/downloader/download_manager.dart';
 
 import '../../../app/model/firmwares/firmware_response_model.dart';
 
@@ -159,9 +160,10 @@ class _FeedCardState extends State<FeedCard> {
                 FilledButton(
                   onPressed: () {
                     for (var url in firmwareLinks) {
-                      launchUrl(
-                        Uri.parse(url),
-                        mode: LaunchMode.externalApplication,
+                      DownloadManager.downloadFile(
+                        url,
+                        widget.firmware.deviceName,
+                        DownloadFileType.firmware,
                       );
                     }
                   },

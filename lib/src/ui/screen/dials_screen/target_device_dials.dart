@@ -1,13 +1,15 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:miyolla/src/app/model/dials/request/dials_wearable_model.dart';
 import 'package:miyolla/src/app/model/dials/response/dial_item_model.dart';
 import 'package:miyolla/src/app/utils/extensions/list_distinct_extension.dart';
 import 'package:miyolla/src/app/utils/extensions/system_overlay_extensions.dart';
 import 'package:miyolla/src/common/constants.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:miyolla/src/remote/watch_face_request.dart';
+
+import '../../../app/model/downloader/download_file_type.dart';
+import '../../../remote/downloader/download_manager.dart';
 
 class TargetDeviceDials extends StatefulWidget {
   const TargetDeviceDials(this.dialModel, {super.key});
@@ -19,23 +21,6 @@ class TargetDeviceDials extends StatefulWidget {
 }
 
 class _TargetDeviceDialsState extends State<TargetDeviceDials> {
-  Future<http.Response> get futureDialsData async {
-    return await http
-        .get(
-          Uri.https(
-            'watch-appstore.iot.mi.com',
-            '/api/watchface/prize/tabs',
-            {
-              'model': widget.dialModel.deviceAlias,
-            },
-          ),
-          // headers: {
-          //   'Watch-Appstore-Common': '_locale=en_US&_language=en',
-          // },
-        )
-        .timeout(const Duration(seconds: 5));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +31,7 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
         systemOverlayStyle: context.colorizeBars,
       ),
       body: FutureBuilder(
-        future: futureDialsData,
+        future: WatchFaceRequest.fetchFirmware(widget.dialModel.deviceAlias),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(child: Text('Error has occurred'));
@@ -87,6 +72,8 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
             ),
             itemCount: dials.length,
             itemBuilder: (context, index) {
+              var dial = dials[index];
+
               return Card(
                 elevation: 2.0,
                 shape: const RoundedRectangleBorder(
@@ -96,17 +83,18 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
                 child: InkWell(
                   borderRadius: Dimens.borderRadius,
                   onTap: () {
-                    launchUrl(
-                      Uri.parse(dials[index].downloadUrl),
-                      mode: LaunchMode.externalApplication,
+                    DownloadManager.downloadFile(
+                      dial.downloadUrl,
+                      widget.dialModel.deviceName,
+                      DownloadFileType.firmware,
                     );
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Tooltip(
-                      message: dials[index].title,
+                      message: dial.title,
                       child: Image.network(
-                        dials[index].iconUrl,
+                        dial.iconUrl,
                         loadingBuilder: (context, child, loadingProgress) {
                           var loaded = loadingProgress?.cumulativeBytesLoaded;
                           var expected = loadingProgress?.expectedTotalBytes;

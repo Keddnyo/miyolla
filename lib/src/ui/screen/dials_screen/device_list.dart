@@ -12,7 +12,7 @@ class DialsDeviceList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.appsTitle),
+        title: Text(AppLocalizations.of(context)!.dialsTitle),
         centerTitle: true,
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
