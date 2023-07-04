@@ -1,7 +1,5 @@
-import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:miyolla/src/app/model/firmwares/firmware_request_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -17,6 +15,52 @@ class FeedCard extends StatefulWidget {
 }
 
 class _FeedCardState extends State<FeedCard> {
+  Future<void> _showAdvancedInfo(BuildContext context) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(widget.firmware.deviceName),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (widget.firmware.firmwareVersion != null)
+                Text(
+                  '${AppLocalizations.of(context)!.firmware}: ${widget.firmware.firmwareVersion}',
+                ),
+              if (widget.firmware.resourceVersion != null)
+                Text(
+                  '${AppLocalizations.of(context)!.resource}: ${widget.firmware.resourceVersion}',
+                ),
+              if (widget.firmware.baseResourceVersion != null)
+                Text(
+                  '${AppLocalizations.of(context)!.baseResource}: ${widget.firmware.baseResourceVersion}',
+                ),
+              if (widget.firmware.fontVersion != null)
+                Text(
+                  '${AppLocalizations.of(context)!.font}: ${widget.firmware.fontVersion}',
+                ),
+              if (widget.firmware.gpsVersion != null)
+                Text(
+                  'GPS: ${widget.firmware.gpsVersion}',
+                ),
+              const SizedBox(height: 12),
+              Text('deviceSource: ${widget.firmware.deviceSource}'),
+              Text('productionSource: ${widget.firmware.productionSource}'),
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Close'),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   late final String releaseNotes;
 
   @override
@@ -28,17 +72,6 @@ class _FeedCardState extends State<FeedCard> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> languages = [];
-
-    if (widget.firmware.lang != null) {
-      for (var languageCode in widget.firmware.lang!.split(',')) {
-        String? languageName = LocaleNames.of(context)!.nameOf(languageCode);
-        if (languageName != null) {
-          languages.add(languageName.capitalize);
-        }
-      }
-    }
-
     List<String> firmwareLinks = [];
 
     if (widget.firmware.firmwareUrl != null) {
@@ -58,21 +91,18 @@ class _FeedCardState extends State<FeedCard> {
     }
 
     return Card(
-      margin: const EdgeInsets.all(8.0),
-      elevation: 8.0,
+      margin: const EdgeInsets.all(12.0),
+      elevation: 2.0,
       child: Column(
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
             child: ListTile(
-              title: Tooltip(
-                message:
-                    'deviceSource: ${widget.firmware.deviceSource}, productionSource: ${widget.firmware.productionSource}',
-                child: Text(
-                  widget.firmware.deviceName,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
+              title: Text(
+                widget.firmware.deviceName,
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
+              subtitle: Text(widget.firmware.firmwareVersion!),
               leading: Container(
                 width: 60,
                 height: 60,
@@ -84,92 +114,45 @@ class _FeedCardState extends State<FeedCard> {
                     width: 0.5,
                   ),
                 ),
-                child: Image.asset(
-                  widget.firmware.firmwareApp == FirmwareRequestApp.zeppLife
-                      ? 'images/mi_fit.png'
-                      : 'images/zepp.png',
+                child: Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Image.asset(
+                    widget.firmware.firmwareApp == FirmwareRequestApp.zeppLife
+                        ? 'images/mi_fit.png'
+                        : 'images/zepp.png',
+                  ),
                 ),
               ),
             ),
           ),
-          if (languages.isNotEmpty)
-            Divider(
-              color: Theme.of(context).colorScheme.onBackground,
-              thickness: 0.5,
-              height: 0.5,
-            ),
-          if (languages.isNotEmpty)
-            ListTile(
-              title: Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Text(
-                  AppLocalizations.of(context)!.firmwareVersion,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              subtitle: Wrap(
-                children: [
-                  if (widget.firmware.firmwareVersion != null &&
-                      widget.firmware.firmwareVersion!.isNotEmpty)
-                    _FirmwareChip(
-                      label:
-                          '${AppLocalizations.of(context)!.firmware}: ${widget.firmware.firmwareVersion}',
-                    ),
-                  if (widget.firmware.resourceVersion != null)
-                    _FirmwareChip(
-                      label:
-                          '${AppLocalizations.of(context)!.resource}: ${widget.firmware.resourceVersion}',
-                    ),
-                  if (widget.firmware.baseResourceVersion != null)
-                    _FirmwareChip(
-                      label:
-                          '${AppLocalizations.of(context)!.baseResource}: ${widget.firmware.baseResourceVersion}',
-                    ),
-                  if (widget.firmware.fontVersion != null)
-                    _FirmwareChip(
-                      label:
-                          '${AppLocalizations.of(context)!.font}: ${widget.firmware.fontVersion}',
-                    ),
-                  if (widget.firmware.gpsVersion != null &&
-                      widget.firmware.gpsVersion!.isNotEmpty)
-                    _FirmwareChip(
-                      label: 'GPS: ${widget.firmware.gpsVersion}',
-                    ),
-                ],
-              ),
-            ),
           Divider(
             color: Theme.of(context).colorScheme.onBackground,
             thickness: 0.5,
             height: 0.5,
           ),
           ListTile(
-            title: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Text(
-                AppLocalizations.of(context)!.firmwareReleaseNotes,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
+            title: Text(
+              AppLocalizations.of(context)!.firmwareReleaseNotes,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
               ),
             ),
-            subtitle: Padding(
-              padding: const EdgeInsets.all(4.0),
-              child: Text(releaseNotes),
-            ),
-          ),
-          Divider(
-            color: Theme.of(context).colorScheme.onBackground,
-            thickness: 0.5,
-            height: 0.5,
+            subtitle: Text(releaseNotes),
           ),
           Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.only(
+              left: 12.0,
+              right: 12.0,
+              bottom: 12.0,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                OutlinedButton(
+                  onPressed: () => _showAdvancedInfo(context),
+                  child: const Icon(Icons.info_outlined),
+                ),
+                const SizedBox(width: 12),
                 FilledButton(
                   onPressed: () {
                     for (var url in firmwareLinks) {
@@ -191,18 +174,4 @@ class _FeedCardState extends State<FeedCard> {
       ),
     );
   }
-}
-
-class _FirmwareChip extends StatelessWidget {
-  const _FirmwareChip({required this.label});
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: Chip(
-          label: Text(label),
-        ),
-      );
 }

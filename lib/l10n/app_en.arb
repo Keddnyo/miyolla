@@ -14,13 +14,9 @@
     }
   },
   "firmwareReleaseNotes": "Release notes:",
-  "firmwareVersion": "Firmware version:",
-  "firmwareLanguages": "Languages:",
-  "firmwareMetaData": "Metadata:",
   "firmwareDownload": "Download",
   "firmware": "Firmware",
   "resource": "Resource",
   "baseResource": "Base resource",
-  "font": "Font",
-  "dialsChooseWearable": "Choose a wearable"
+  "font": "Font"
 }

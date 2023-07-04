@@ -5,9 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../../common/constants.dart';
 
 class AppAboutDialog extends StatelessWidget {
-  const AppAboutDialog({
-    super.key,
-  });
+  const AppAboutDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,14 +23,26 @@ class AppAboutDialog extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         OutlinedButton(
-            onPressed: () {
-              launchUrl(
-                Uri.parse(
-                    'https://github.com/${Constants.appDeveloper}/${Constants.appName}'),
-                mode: LaunchMode.externalApplication,
-              );
-            },
-            child: const Text('GitHub'))
+          onPressed: () {
+            launchUrl(
+              Uri.parse(
+                  'https://github.com/${Constants.appDeveloper}'),
+              mode: LaunchMode.externalApplication,
+            );
+          },
+          child: const Text(Constants.appDeveloper),
+        ),
+        const SizedBox(height: 12),
+        OutlinedButton(
+          onPressed: () {
+            launchUrl(
+              Uri.parse(
+                  'https://github.com/${Constants.appDeveloper}/${Constants.appName}'),
+              mode: LaunchMode.externalApplication,
+            );
+          },
+          child: const Text(Constants.appName),
+        ),
       ],
     );
   }

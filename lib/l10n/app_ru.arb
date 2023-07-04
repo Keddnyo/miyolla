@@ -14,13 +14,9 @@
     }
   },
   "firmwareReleaseNotes": "Список изменений:",
-  "firmwareVersion": "Версия прошивки:",
-  "firmwareLanguages": "Языки:",
-  "firmwareMetaData": "Метаданные:",
   "firmwareDownload": "Скачать",
   "firmware": "Прошивка",
   "resource": "Ресурсы",
   "baseResource": "Баз. ресурсы",
-  "font": "Шрифт",
-  "dialsChooseWearable": "Выберите устройство"
+  "font": "Шрифт"
 }

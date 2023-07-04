@@ -12,7 +12,7 @@ class DialsDeviceList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.dialsChooseWearable),
+        title: Text(AppLocalizations.of(context)!.appsTitle),
         centerTitle: true,
         shadowColor: Colors.black,
         systemOverlayStyle: context.colorizeBars,
@@ -31,7 +31,7 @@ class DialsDeviceList extends StatelessWidget {
                   horizontal: 12.0,
                 ),
                 child: Card(
-                  elevation: 8.0,
+                  elevation: 2.0,
                   child: ListTile(
                     title: Text(
                       dial.deviceName,
