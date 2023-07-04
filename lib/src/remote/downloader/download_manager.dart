@@ -33,9 +33,8 @@ class DownloadManager {
     if (Platform.isAndroid) {
       await AndroidDownloadManager.enqueue(
         downloadUrl: url,
-        downloadPath:
-            "/sdcard/Download/${Constants.appName}/Dials/$deviceName.bin",
-        fileName: fileName.replaceAll(' ', '_'),
+        downloadPath: "/sdcard/Download/${Constants.appName}/Dials/$deviceName",
+        fileName: '${fileName.replaceAll(' ', '_')}.bin',
       );
     } else {
       await launchUrl(
