@@ -52,7 +52,7 @@ class _FeedCardState extends State<FeedCard> {
           ),
           actions: <Widget>[
             FilledButton(
-              child: const Text('Close'),
+              child: Text(AppLocalizations.of(context)!.close),
               onPressed: () => Navigator.of(context).pop(),
             ),
           ],
