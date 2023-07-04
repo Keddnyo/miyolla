@@ -161,9 +161,9 @@ class _FeedCardState extends State<FeedCard> {
                   onPressed: () {
                     for (var url in firmwareLinks) {
                       DownloadManager.downloadFile(
-                        url,
-                        widget.firmware.deviceName,
-                        DownloadFileType.firmware,
+                        url: url,
+                        deviceName: widget.firmware.deviceName,
+                        fileType: DownloadFileType.firmware,
                       );
                     }
                   },

@@ -84,9 +84,10 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
                   borderRadius: Dimens.borderRadius,
                   onTap: () {
                     DownloadManager.downloadFile(
-                      dial.downloadUrl,
-                      widget.dialModel.deviceName,
-                      DownloadFileType.watchface,
+                      url: dial.downloadUrl,
+                      deviceName: widget.dialModel.deviceName,
+                      fileType: DownloadFileType.watchface,
+                      fileName: dial.title,
                     );
                   },
                   child: Padding(
