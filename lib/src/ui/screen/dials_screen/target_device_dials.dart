@@ -86,7 +86,7 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
                     DownloadManager.downloadFile(
                       dial.downloadUrl,
                       widget.dialModel.deviceName,
-                      DownloadFileType.firmware,
+                      DownloadFileType.watchface,
                     );
                   },
                   child: Padding(
