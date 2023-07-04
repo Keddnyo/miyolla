@@ -8,7 +8,6 @@ import 'package:miyolla/src/app/utils/extensions/system_overlay_extensions.dart'
 import 'package:miyolla/src/common/constants.dart';
 import 'package:miyolla/src/remote/watch_face_request.dart';
 
-import '../../../app/model/downloader/download_file_type.dart';
 import '../../../remote/downloader/download_manager.dart';
 
 class TargetDeviceDials extends StatefulWidget {
@@ -83,10 +82,9 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
                 child: InkWell(
                   borderRadius: Dimens.borderRadius,
                   onTap: () {
-                    DownloadManager.downloadFile(
+                    DownloadManager.downloadDial(
                       url: dial.downloadUrl,
                       deviceName: widget.dialModel.deviceName,
-                      fileType: DownloadFileType.watchface,
                       fileName: dial.title,
                     );
                   },

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:miyolla/src/app/model/downloader/download_file_type.dart';
 import 'package:miyolla/src/app/model/firmwares/firmware_request_model.dart';
 import 'package:miyolla/src/remote/downloader/download_manager.dart';
 
@@ -160,10 +159,9 @@ class _FeedCardState extends State<FeedCard> {
                 FilledButton(
                   onPressed: () {
                     for (var url in firmwareLinks) {
-                      DownloadManager.downloadFile(
+                      DownloadManager.downloadFirmware(
                         url: url,
                         deviceName: widget.firmware.deviceName,
-                        fileType: DownloadFileType.firmware,
                       );
                     }
                   },
