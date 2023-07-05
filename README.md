@@ -31,15 +31,16 @@ All-in-one tool for Huami wearables
 2. Windows 10 or above
 
 ## Screenshots
-<img src="https://github.com/Keddnyo/miyolla/assets/65981689/dd029af5-757d-4187-a1aa-2702fc5febd5" max-width="100%" width="33%">
-<img src="https://github.com/Keddnyo/miyolla/assets/65981689/3b7822ed-4ac0-46d9-9ad4-ca79c82a829f" max-width="100%" width="33%">
-<img src="https://github.com/Keddnyo/miyolla/assets/65981689/4d54438d-04cc-4a85-a40a-2a9fc90d52c6" max-width="100%" width="33%">
-<img src="https://github.com/Keddnyo/miyolla/assets/65981689/e0ef1447-d560-4ea2-866d-725782049667" max-width="100%" width="33%">
-<img src="https://github.com/Keddnyo/miyolla/assets/65981689/f002c893-c5c8-4ea8-85b6-38d71efb5323" max-width="100%" width="33%">
-<img src="https://github.com/Keddnyo/miyolla/assets/65981689/ddd41049-8d6d-4e43-be3a-43a86a8ca98a" max-width="100%" width="33%">
-<img src="https://github.com/Keddnyo/miyolla/assets/65981689/85806595-b700-4acb-97c3-d0421b442ba2" max-width="100%" width="33%">
-<img src="https://github.com/Keddnyo/miyolla/assets/65981689/82e3046c-0fab-474e-bf1f-b160063314db" max-width="100%" width="33%">
-<img src="https://github.com/Keddnyo/miyolla/assets/65981689/e60f1eac-0906-4d06-a9eb-848fb580bb4c" max-width="100%" width="33%">
-<img src="https://github.com/Keddnyo/miyolla/assets/65981689/6b3ebbd7-a536-47cd-bb28-82f3bdc61c93" max-width="100%" width="33%">
-<img src="https://github.com/Keddnyo/miyolla/assets/65981689/0a2cbdfe-1584-44e7-b8a0-51f709519503" max-width="100%" width="33%">
-<img src="https://github.com/Keddnyo/miyolla/assets/65981689/3fc2046d-dc7e-4d68-ad88-d4a03be67834" max-width="100%" width="33%">
+<img src="https://github.com/Keddnyo/miyolla/assets/65981689/00994ba3-fd7f-408e-a034-7e753360a78f" max-width="100%" width="33%">
+<img src="https://github.com/Keddnyo/miyolla/assets/65981689/fbae11b5-3e4a-44c1-8cec-eb30367bc17e" max-width="100%" width="33%">
+<img src="https://github.com/Keddnyo/miyolla/assets/65981689/189287a8-419b-49dc-9b00-109f836b21e9" max-width="100%" width="33%">
+<img src="https://github.com/Keddnyo/miyolla/assets/65981689/ecc57a52-6e73-49a0-aed8-c644f03e3dde" max-width="100%" width="33%">
+<img src="https://github.com/Keddnyo/miyolla/assets/65981689/5bbc2253-644d-4237-9f01-b09361d5d357" max-width="100%" width="33%">
+<img src="https://github.com/Keddnyo/miyolla/assets/65981689/7e175239-c3d4-4b98-b53c-62dbe7e93dad" max-width="100%" width="33%">
+
+<img src="https://github.com/Keddnyo/miyolla/assets/65981689/d634b69f-7b58-4f30-affb-bc6e266ab12f" max-width="100%" width="33%">
+<img src="https://github.com/Keddnyo/miyolla/assets/65981689/fbe5922a-7e2f-4cfe-8488-2673ab903f5f" max-width="100%" width="33%">
+<img src="https://github.com/Keddnyo/miyolla/assets/65981689/beabb396-8cbb-4966-8a16-bc4175a1cef6" max-width="100%" width="33%">
+<img src="https://github.com/Keddnyo/miyolla/assets/65981689/4f238cdd-c153-40d7-9d20-63805cf95f9b" max-width="100%" width="33%">
+<img src="https://github.com/Keddnyo/miyolla/assets/65981689/3b4dc3c4-9204-496c-8609-d1f84bf66869" max-width="100%" width="33%">
+<img src="https://github.com/Keddnyo/miyolla/assets/65981689/ef6b8cda-c439-4c97-87d9-5bd9549bebfa" max-width="100%" width="33%">
