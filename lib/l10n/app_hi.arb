@@ -1,0 +1,25 @@
+{
+  "@@locale": "hi",
+  "appDescription": "हुआमी पहनने योग्य वस्तुओं के लिए ऑल-इन-वन टूल",
+  "feedTitle": "फर्मवेयर",
+  "dialsTitle": "डायल",
+  "appsTitle": "ऐप्स",
+  "aboutTitle": "ऐप के बारे में",
+  "aboutText": "MiYolla Xiaomi वियरेबल्स के लिए एक कंटेंट एग्रीगेटर है।\nइसमें 3 श्रेणियां उपलब्ध हैं।\nपहली श्रेणी वियरेबल्स की फर्मवेयर फ़ीड है।\nदूसरी श्रेणी वियरेबल्स के डायल हैं।\nतीसरी श्रेणी वियरेबल-इंटरैक्शन एंड्रॉइड ऐप्स कैटलॉग है।",
+  "appCredits": "{developer} द्वारा बनाया गया, 2023",
+  "@appCredits": {
+    "placeholders": {
+      "developer": {
+        "type": "String"
+      }
+    }
+  },
+  "firmwareReleaseNotes": "रिलीज नोट्स:",
+  "firmwareDownload": "डाउनलोड करना",
+  "firmware": "फर्मवेयर",
+  "resource": "संसाधन",
+  "baseResource": "आधार संसाधन",
+  "font": "फ़ॉन्ट",
+  "close": "बंद करना",
+  "startDownload": "डाउनलोड हो रहा है..."
+}

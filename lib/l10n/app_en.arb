@@ -5,8 +5,8 @@
   "dialsTitle": "Dials",
   "appsTitle": "Apps",
   "aboutTitle": "About",
-  "aboutText": "This app is designed for Huami wearables.\nThere are three destinations can be found in navigation drawer.\nThe first one is firmwares feed. There you can download firmwares for different wearables.\nThe second one is dials. There you can discover varius watch faces.\nThe third one is apps. There you can find an Android app for your wearable.",
-  "appCredits": "(c) Created by {developer}, 2023",
+  "aboutText": "MiYolla is a content aggregator for Xiaomi wearables.\nThere are 3 categories available.\nThe first category is wearable's firmwares feed.\nThe second category is a wearable's dials.\nThe third category is wearable-interaction Android apps catalog.",
+  "appCredits": "Created by {developer}, 2023",
   "@appCredits": {
     "placeholders": {
       "developer": {
