@@ -5,7 +5,7 @@
   "dialsTitle": "다이얼",
   "appsTitle": "앱",
   "aboutTitle": "앱 정보",
-  "aboutText": "MiYolla는 Xiaomi 웨어러블용 콘텐츠 수집기입니다.\n사용 가능한 카테고리가 3개 있습니다.\n첫 번째 카테고리는 웨어러블의 펌웨어 피드입니다.\n두 번째 카테고리는 웨어러블의 다이얼입니다.\n세 번째 카테고리는 웨어러블 상호작용 Android 앱 카탈로그입니다.",
+  "aboutText": "MiYolla는 Huami 웨어러블용 콘텐츠 수집기입니다.\n사용 가능한 카테고리가 3개 있습니다.\n첫 번째 카테고리는 웨어러블의 펌웨어 피드입니다.\n두 번째 카테고리는 웨어러블의 다이얼입니다.\n세 번째 카테고리는 웨어러블 상호작용 Android 앱 카탈로그입니다.",
   "firmwareReleaseNotes": "릴리즈 노트:",
   "firmwareDownload": "다운로드",
   "firmware": "펌웨어",

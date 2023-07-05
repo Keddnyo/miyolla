@@ -5,7 +5,7 @@
   "dialsTitle": "Dials",
   "appsTitle": "Apps",
   "aboutTitle": "About",
-  "aboutText": "MiYolla is a content aggregator for Xiaomi wearables.\nThere are 3 categories available.\nThe first category is wearable's firmwares feed.\nThe second category is a wearable's dials.\nThe third category is wearable-interaction Android apps catalog.",
+  "aboutText": "MiYolla is a content aggregator for Huami wearables.\nThere are 3 categories available.\nThe first category is wearable's firmwares feed.\nThe second category is a wearable's dials.\nThe third category is wearable-interaction Android apps catalog.",
   "firmwareReleaseNotes": "Release notes:",
   "firmwareDownload": "Download",
   "firmware": "Firmware",
