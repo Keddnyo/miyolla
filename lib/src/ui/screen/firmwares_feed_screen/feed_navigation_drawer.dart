@@ -43,6 +43,7 @@ class FeedNavigationDrawer extends StatelessWidget {
               const Text(
                 Constants.appName,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36.0),
+                textAlign: TextAlign.center,
               ),
               Text(
                 AppLocalizations.of(context)!.appDescription,

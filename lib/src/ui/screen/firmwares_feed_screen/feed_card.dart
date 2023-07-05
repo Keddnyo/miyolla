@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:miyolla/src/app/model/firmwares/firmware_request_model.dart';
+import 'package:miyolla/src/common/constants.dart';
 import 'package:miyolla/src/remote/downloader/download_manager.dart';
 
 import '../../../app/model/firmwares/firmware_response_model.dart';
@@ -95,15 +96,7 @@ class _FeedCardState extends State<FeedCard> {
 
     return Card(
       margin: const EdgeInsets.all(12.0),
-      shape: RoundedRectangleBorder(
-        side: BorderSide(
-          color: Theme.of(context).colorScheme.onBackground,
-          width: 0.5,
-        ),
-        borderRadius: const BorderRadius.all(
-          Radius.circular(16.0),
-        ),
-      ),
+      shape: Styles.getOutlinedBorder(context),
       elevation: 2.0,
       child: Column(
         children: [

@@ -78,9 +78,7 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
 
               return Card(
                 elevation: 2.0,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: Dimens.borderRadius,
-                ),
+                shape: Styles.getOutlinedBorder(context),
                 margin: const EdgeInsets.all(8.0),
                 child: InkWell(
                   borderRadius: Dimens.borderRadius,

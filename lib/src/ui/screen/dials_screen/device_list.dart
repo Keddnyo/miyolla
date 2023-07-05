@@ -4,6 +4,7 @@ import 'package:miyolla/src/app/utils/extensions/system_overlay_extensions.dart'
 
 import '../../../app/model/dials/request/dials_wearable_model.dart';
 import '../../../app/navigation/routes.dart';
+import '../../../common/constants.dart';
 
 class DialsDeviceList extends StatelessWidget {
   const DialsDeviceList({super.key});
@@ -32,6 +33,7 @@ class DialsDeviceList extends StatelessWidget {
                 ),
                 child: Card(
                   elevation: 2.0,
+                  shape: Styles.getOutlinedBorder(context),
                   child: ListTile(
                     title: Text(
                       dial.deviceName,
