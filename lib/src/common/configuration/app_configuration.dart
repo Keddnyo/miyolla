@@ -34,8 +34,18 @@ class MiYollaApp extends StatelessWidget {
         LocaleNamesLocalizationsDelegate(),
       ],
       supportedLocales: const [
-        Locale('en', 'US'),
-        Locale('ru', 'RU'),
+        Locale('be'),
+        Locale('de'),
+        Locale('en'),
+        Locale('es'),
+        Locale('fr'),
+        Locale('hi'),
+        Locale('ja'),
+        Locale('ko'),
+        Locale('ru'),
+        Locale('tr'),
+        Locale('uk'),
+        Locale('zh'),
       ],
       scrollBehavior: const MaterialScrollBehavior().copyWith(
         dragDevices: {
