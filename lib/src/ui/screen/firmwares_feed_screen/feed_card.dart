@@ -92,6 +92,15 @@ class _FeedCardState extends State<FeedCard> {
 
     return Card(
       margin: const EdgeInsets.all(12.0),
+      shape: RoundedRectangleBorder(
+        side: BorderSide(
+          color: Theme.of(context).colorScheme.onBackground,
+          width: 0.5,
+        ),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(16.0),
+        ),
+      ),
       elevation: 2.0,
       child: Column(
         children: [
@@ -103,25 +112,10 @@ class _FeedCardState extends State<FeedCard> {
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               subtitle: Text(widget.firmware.firmwareVersion!),
-              leading: Container(
-                width: 60,
-                height: 60,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: Theme.of(context).colorScheme.onBackground,
-                    width: 0.5,
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Image.asset(
-                    widget.firmware.firmwareApp == FirmwareRequestApp.zeppLife
-                        ? 'images/mi_fit.png'
-                        : 'images/zepp.png',
-                  ),
-                ),
+              leading: Image.asset(
+                widget.firmware.firmwareApp == FirmwareRequestApp.zeppLife
+                    ? 'images/mi_fit.png'
+                    : 'images/zepp.png',
               ),
             ),
           ),
