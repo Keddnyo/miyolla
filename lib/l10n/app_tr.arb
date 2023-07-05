@@ -6,14 +6,6 @@
   "appsTitle": "Uygulamalar",
   "aboutTitle": "Hakkında",
   "aboutText": "MiYolla, Xiaomi giyilebilir cihazları için bir içerik toplayıcıdır.\\n3 kategori mevcuttur.\\nBirinci kategori, giyilebilir cihazların donanım yazılımı beslemesidir.\\nİkinci kategori, giyilebilir cihazların kadranlarıdır.\\nÜçüncü kategori, giyilebilir etkileşimli Android uygulamaları kataloğudur.",
-  "appCredits": "Oluşturan {developer}, 2023",
-  "@appCredits": {
-    "placeholders": {
-      "developer": {
-        "type": "String"
-      }
-    }
-  },
   "firmwareReleaseNotes": "Sürüm notları:",
   "firmwareDownload": "İndirmek",
   "firmware": "Donanım yazılımı",

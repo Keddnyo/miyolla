@@ -6,14 +6,6 @@
   "appsTitle": "Програми",
   "aboutTitle": "Про додаток",
   "aboutText": "MiYolla — це агрегатор вмісту для носіїв Xiaomi.\nДоступно 3 категорії.\nПерша категорія — це стрічка мікропрограм для носіїв.\nДруга категорія — циферблати носіїв.\nТретя категорія — каталог додатків Android для взаємодії з носіями.",
-  "appCredits": "Створено {developer}, 2023",
-  "@appCredits": {
-    "placeholders": {
-      "developer": {
-        "type": "String"
-      }
-    }
-  },
   "firmwareReleaseNotes": "Примітки до випуску:",
   "firmwareDownload": "Завантажити",
   "firmware": "Firmware",

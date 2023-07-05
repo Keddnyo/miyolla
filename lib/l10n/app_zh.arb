@@ -6,14 +6,6 @@
   "appsTitle": "应用",
   "aboutTitle": "关于",
   "aboutText": "MiYolla 是小米可穿戴设备的内容聚合器。\n有 3 个类别。\n第一个类别是可穿戴设备的固件源。\n第二个类别是可穿戴设备的表盘。\n第三个类别是可穿戴设备交互 Android 应用程序目录.",
-  "appCredits": "由 {developer} 创建，2023 年",
-  "@appCredits": {
-    "placeholders": {
-      "developer": {
-        "type": "String"
-      }
-    }
-  },
   "firmwareReleaseNotes": "发行说明：",
   "firmwareDownload": "下载",
   "firmware": "固件",

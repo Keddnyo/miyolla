@@ -6,14 +6,6 @@
   "appsTitle": "Apps",
   "aboutTitle": "Über App",
   "aboutText": "MiYolla ist ein Inhaltsaggregator für Xiaomi-Wearables.\nEs stehen drei Kategorien zur Verfügung.\nDie erste Kategorie ist der Firmware-Feed des Wearables.\nDie zweite Kategorie sind die Zifferblätter eines Wearables.\nDie dritte Kategorie ist der Katalog von Android-Apps mit Wearable-Interaktion.",
-  "appCredits": "Erstellt von {developer}, 2023",
-  "@appCredits": {
-    "placeholders": {
-      "developer": {
-        "type": "String"
-      }
-    }
-  },
   "firmwareReleaseNotes": "Versionshinweise:",
   "firmwareDownload": "Herunterladen",
   "firmware": "Firmware",

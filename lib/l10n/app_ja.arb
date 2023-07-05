@@ -6,14 +6,6 @@
   "appsTitle": "アプリ",
   "aboutTitle": "だいたい",
   "aboutText": "MiYolla は、Xiaomi ウェアラブルのコンテンツ アグリゲータです。\n利用可能なカテゴリは 3 つあります。\n最初のカテゴリは、ウェアラブルのファームウェア フィードです。\n2 番目のカテゴリは、ウェアラブルのダイヤルです。\n3 番目のカテゴリは、ウェアラブル インタラクション Android アプリ カタログです。",
-  "appCredits": "{developer} によって作成、2023 年",
-  "@appCredits": {
-    "placeholders": {
-      "developer": {
-        "type": "String"
-      }
-    }
-  },
   "firmwareReleaseNotes": "リリースノート：",
   "firmwareDownload": "ダウンロード",
   "firmware": "ファームウェア",
