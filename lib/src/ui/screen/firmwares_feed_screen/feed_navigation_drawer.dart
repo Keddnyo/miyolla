@@ -36,18 +36,18 @@ class FeedNavigationDrawer extends StatelessWidget {
         }
       },
       children: [
-        const DrawerHeader(
+        DrawerHeader(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 Constants.appName,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36.0),
                 textAlign: TextAlign.center,
               ),
               Text(
-                'Copyright (c) 2023 ${Constants.appDeveloper}',
-                style: TextStyle(fontSize: 12.0),
+                AppLocalizations.of(context)!.appDescription,
+                style: const TextStyle(fontSize: 12.0),
               ),
             ],
           ),

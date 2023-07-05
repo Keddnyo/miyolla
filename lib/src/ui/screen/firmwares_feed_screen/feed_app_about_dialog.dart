@@ -18,8 +18,8 @@ class AppAboutDialog extends StatelessWidget {
           AppLocalizations.of(context)!.aboutText,
         ),
         const SizedBox(height: 12),
-        Text(
-          AppLocalizations.of(context)!.appCredits(Constants.appDeveloper),
+        const Text(
+          'Copyright (c) 2023 ${Constants.appDeveloper}',
         ),
         const SizedBox(height: 12),
         OutlinedButton(
