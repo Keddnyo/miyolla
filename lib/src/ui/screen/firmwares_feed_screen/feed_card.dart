@@ -160,6 +160,7 @@ class _FeedCardState extends State<FeedCard> {
                   onPressed: () {
                     for (var url in firmwareLinks) {
                       DownloadManager.downloadFirmware(
+                        context: context,
                         url: url,
                         deviceName: widget.firmware.deviceName,
                       );

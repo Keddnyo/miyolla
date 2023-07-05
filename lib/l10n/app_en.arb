@@ -1,4 +1,5 @@
 {
+  "@@locale": "en",
   "appDescription": "All-in-one tool for Huami wearables",
   "feedTitle": "Feed",
   "dialsTitle": "Dials",
@@ -19,5 +20,6 @@
   "resource": "Resource",
   "baseResource": "Base resource",
   "font": "Font",
-  "close": "Close"
+  "close": "Close",
+  "startDownload": "Downloading..."
 }

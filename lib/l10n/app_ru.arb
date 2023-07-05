@@ -1,4 +1,5 @@
 {
+  "@@locale": "ru",
   "appDescription": "Всё-в-одном для устройств Huami",
   "feedTitle": "Лента",
   "dialsTitle": "Циферблаты",
@@ -19,5 +20,6 @@
   "resource": "Ресурсы",
   "baseResource": "Баз. ресурсы",
   "font": "Шрифт",
-  "close": "Закрыть"
+  "close": "Закрыть",
+  "startDownload": "Загрузка..."
 }

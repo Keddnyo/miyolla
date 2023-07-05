@@ -83,6 +83,7 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
                   borderRadius: Dimens.borderRadius,
                   onTap: () {
                     DownloadManager.downloadDial(
+                      context: context,
                       url: dial.downloadUrl,
                       deviceName: widget.dialModel.deviceName,
                       fileName: dial.title,
