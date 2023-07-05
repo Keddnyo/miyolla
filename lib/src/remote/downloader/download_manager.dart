@@ -17,8 +17,6 @@ class DownloadManager {
     if (Platform.isAndroid) {
       String fileName = url.split('/').last;
 
-      _showDownloadToast(context);
-
       await AndroidDownloadManager.enqueue(
         downloadUrl: url,
         downloadPath:
@@ -40,8 +38,6 @@ class DownloadManager {
     required String fileName,
   }) async {
     if (Platform.isAndroid) {
-      _showDownloadToast(context);
-
       await AndroidDownloadManager.enqueue(
         downloadUrl: url,
         downloadPath: "/sdcard/Download/${Constants.appName}/Dials/$deviceName",
@@ -53,12 +49,5 @@ class DownloadManager {
         mode: LaunchMode.externalApplication,
       );
     }
-  }
-
-  static _showDownloadToast(BuildContext context) {
-    Fluttertoast.showToast(
-      msg: AppLocalizations.of(context)!.firmwareDownload,
-      toastLength: Toast.LENGTH_SHORT,
-    );
   }
 }

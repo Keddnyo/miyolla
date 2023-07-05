@@ -1,6 +1,9 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:miyolla/src/app/model/dials/request/dials_wearable_model.dart';
 import 'package:miyolla/src/app/model/dials/response/dial_item_model.dart';
 import 'package:miyolla/src/app/utils/extensions/list_distinct_extension.dart';
@@ -82,6 +85,13 @@ class _TargetDeviceDialsState extends State<TargetDeviceDials> {
                 child: InkWell(
                   borderRadius: Dimens.borderRadius,
                   onTap: () {
+                    if (Platform.isAndroid) {
+                      Fluttertoast.showToast(
+                        msg: AppLocalizations.of(context)!.startDownload,
+                        toastLength: Toast.LENGTH_SHORT,
+                      );
+                    }
+
                     DownloadManager.downloadDial(
                       context: context,
                       url: dial.downloadUrl,

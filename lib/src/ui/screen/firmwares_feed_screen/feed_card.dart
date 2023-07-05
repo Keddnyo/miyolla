@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:miyolla/src/app/model/firmwares/firmware_request_model.dart';
 import 'package:miyolla/src/remote/downloader/download_manager.dart';
 
@@ -152,6 +155,13 @@ class _FeedCardState extends State<FeedCard> {
                 const SizedBox(width: 12),
                 FilledButton(
                   onPressed: () {
+                    if (Platform.isAndroid) {
+                      Fluttertoast.showToast(
+                        msg: AppLocalizations.of(context)!.startDownload,
+                        toastLength: Toast.LENGTH_SHORT,
+                      );
+                    }
+
                     for (var url in firmwareLinks) {
                       DownloadManager.downloadFirmware(
                         context: context,
