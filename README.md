@@ -4,9 +4,9 @@ All-in-one tool for Huami wearables
 ## Description
 * MiYolla is a content aggregator for Huami wearables.
 * There are 3 categories available.
-* The first category is wearable's firmwares feed.
-* The second category is a wearable's dials.
-* The third category is wearable-interaction Android apps catalog.
+* The first category is wearable's firmwares feed (from Zepp and Zepp Life).
+* The second category is a wearable's dials (from Mi Fitness).
+* The third category is wearable-interaction apps catalog (for Android).
  
 ## Behaviur
 * Files are downloading into `/sdcard/Download/MiYolla/` on Android
