@@ -8,9 +8,9 @@ All-in-one tool for Huami wearables
 * The second category is a wearable's dials (from Mi Fitness).
 * The third category is wearable-interaction apps catalog (for Android).
  
-## Behaviur
-* Files are downloading into `/sdcard/Download/MiYolla/` on Android
-* Files are downloading into default browser's download folder on desktop
+## Behavior
+* Files are getting downloaded into `/sdcard/Download/MiYolla/` on Android
+* Files are getting downloaded into default browser's download folder on desktop
  
 ## Supported languages
 * English
