@@ -49,7 +49,11 @@ The MiYolla app can download different firmware versions for many Huami wearable
 7. Chinese
 
 ### Platforms:
-* WEB
+* [WEB](https://keddnyo.github.io/miyolla)
 * Android 4.1 Jelly Bean or above
 * Linux
 * Windows 10 or above
+
+### Credentials:
+* [Keddnyo](https://github.com/Keddnyo) - [MiYolla app](https://github.com/Keddnyo/miyolla)
+* [Schakal](https://4pda.to/forum/index.php?showuser=243484) - [Firmwarehouse API](https://schakal.ru/fw/firmwares_list.htm)
