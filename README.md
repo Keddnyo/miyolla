@@ -6,7 +6,6 @@ Firmwares for Huami wearables
 ![Downloads](https://img.shields.io/github/downloads/Keddnyo/miyolla/total?label=Downloads)
 ![Latest downloads](https://img.shields.io/github/downloads-pre/Keddnyo/miyolla/latest/total?label=Latest%20downloads)
 
-
 ### Description:
 The MiYolla app can download different firmware versions for many Huami wearables:
 * Amazfit
@@ -14,8 +13,7 @@ The MiYolla app can download different firmware versions for many Huami wearable
 * Zepp
 
 ### Screenshots:
-<img src='assets/screenshots/devices.jpeg' height='512'>
-<img src='assets/screenshots/firmwares.jpeg' height='512'>
+<img src='assets/screenshots/devices.jpeg' height='512'> <img src='assets/screenshots/firmwares.jpeg' height='512'>
 
 ### Features:
 1. Simple UI
