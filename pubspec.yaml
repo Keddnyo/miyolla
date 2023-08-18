@@ -8,7 +8,6 @@ environment:
 
 dependencies:
   android_download_manager: ^1.0.3
-  flex_color_scheme: ^7.2.0
   flutter:
     sdk: flutter
   flutter_localizations:
