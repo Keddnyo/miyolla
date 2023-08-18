@@ -52,6 +52,7 @@ class _AppDrawerState extends State<AppDrawer> {
                     Text(
                       _appDescription,
                       style: const TextStyle(fontSize: 14),
+                      textAlign: TextAlign.center,
                     ),
                   ],
                 ),

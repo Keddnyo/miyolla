@@ -18,7 +18,12 @@ class AppConfiguration extends StatelessWidget {
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: const [
           Locale('en'),
+          Locale('de'),
+          Locale('fr'),
           Locale('ru'),
+          Locale('uk'),
+          Locale('be'),
+          Locale('zh'),
         ],
       );
 }

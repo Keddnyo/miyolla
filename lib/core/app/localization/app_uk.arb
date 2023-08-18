@@ -1,0 +1,21 @@
+{
+    "@@locale": "uk",
+    "appDescription": "Прошивки для носіїв Huami",
+    "appDeveloper": "Розробник програми",
+    "apiDeveloper": "Розробник Back-End API",
+    "firmwareLatestMsg": "Ця прошивка остання",
+    "firmwareUnsuitableMsg": "Бажана мова не підтримується",
+    "firmwareDownloadMsg": "Завантаження прошивки: {firmwareVersion}",
+    "@firmwareDownloadMsg": {
+        "placeholders": {
+            "firmwareVersion": {
+                "type": "String",
+                "example": "1.2.3.45"
+            }
+        }
+    },
+    "firmwareLoadingErrorMsg": "Список прошивок тимчасово недоступний",
+    "retry": "Повторіть спробу",
+    "navigationErrorMsg": "Сторінку не знайдено",
+    "navigateBack": "Повернутися назад"
+}

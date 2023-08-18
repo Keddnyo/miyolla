@@ -3,10 +3,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../core/utils/download_manager/download_manager.dart';
 import '../../../shared/ui/show_snack_bar.dart';
+import '../../../shared/ui/widgets/app_bar.dart';
 import '../../../shared/utils/get_localizations.dart';
 import '../domain/entities/device.dart';
 import '../domain/entities/firmware.dart';
-import 'widgets/app_bar.dart';
 import 'widgets/firmware_card.dart';
 
 class SelectFirmwarePage extends StatefulWidget {

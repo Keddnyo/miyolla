@@ -1,0 +1,21 @@
+{
+    "@@locale": "be",
+    "appDescription": "Прашыўкі для носных прылад Huami",
+    "appDeveloper": "Распрацоўшчык прыкладанняў",
+    "apiDeveloper": "Распрацоўшчык Back-End API",
+    "firmwareLatestMsg": "Гэта прашыўка актуальная",
+    "firmwareUnsuitableMsg": "Пажаданая мова не падтрымліваецца",
+    "firmwareDownloadMsg": "Загрузка прашыўкі: {firmwareVersion}",
+    "@firmwareDownloadMsg": {
+        "placeholders": {
+            "firmwareVersion": {
+                "type": "String",
+                "example": "1.2.3.45"
+            }
+        }
+    },
+    "firmwareLoadingErrorMsg": "Спіс прашывак часова недаступен",
+    "retry": "Паўтарыць",
+    "navigationErrorMsg": "Старонка не знойдзена",
+    "navigateBack": "Вярнуцца назад"
+}

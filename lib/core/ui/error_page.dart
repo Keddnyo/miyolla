@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../features/firmwares/ui/widgets/app_bar.dart';
 import '../../shared/constants.dart';
+import '../../shared/ui/widgets/app_bar.dart';
 import '../../shared/ui/widgets/error_message.dart';
 import '../../shared/utils/get_localizations.dart';
 

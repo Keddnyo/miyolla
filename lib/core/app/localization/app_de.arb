@@ -1,0 +1,21 @@
+{
+    "@@locale": "de",
+    "appDescription": "Firmwares für Huami Wearables",
+    "appDeveloper": "App-Entwickler",
+    "apiDeveloper": "Back-End-API-Entwickler",
+    "firmwareLatestMsg": "Diese Firmware ist aktuell",
+    "firmwareUnsuitableMsg": "Die bevorzugte Sprache wird nicht unterstützt",
+    "firmwareDownloadMsg": "Firmware wird heruntergeladen: {firmwareVersion}",
+    "@firmwareDownloadMsg": {
+        "placeholders": {
+            "firmwareVersion": {
+                "type": "String",
+                "example": "1.2.3.45"
+            }
+        }
+    },
+    "firmwareLoadingErrorMsg": "Firmwares sind nicht verfügbar",
+    "retry": "Wiederholen",
+    "navigationErrorMsg": "Seite nicht gefunden",
+    "navigateBack": "Geh zurück"
+}

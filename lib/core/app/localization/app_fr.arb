@@ -1,0 +1,21 @@
+{
+    "@@locale": "fr",
+    "appDescription": "Firmwares pour appareils portables Huami",
+    "appDeveloper": "Développeur d'applications",
+    "apiDeveloper": "Développeur d'API back-end",
+    "firmwareLatestMsg": "Ce firmware est à jour",
+    "firmwareUnsuitableMsg": "La langue préférée n'est pas prise en charge",
+    "firmwareDownloadMsg": "Téléchargement du micrologiciel: {firmwareVersion}",
+    "@firmwareDownloadMsg": {
+        "placeholders": {
+            "firmwareVersion": {
+                "type": "String",
+                "example": "1.2.3.45"
+            }
+        }
+    },
+    "firmwareLoadingErrorMsg": "Les micrologiciels ne sont pas disponibles",
+    "retry": "Juger à nouveau",
+    "navigationErrorMsg": "Page non trouvée",
+    "navigateBack": "Retourner"
+}

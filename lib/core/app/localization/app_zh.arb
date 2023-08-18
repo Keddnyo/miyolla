@@ -1,0 +1,21 @@
+{
+    "@@locale": "zh",
+    "appDescription": "华米可穿戴设备固件",
+    "appDeveloper": "应用开发者",
+    "apiDeveloper": "后端API开发人员",
+    "firmwareLatestMsg": "这个固件是最新的",
+    "firmwareUnsuitableMsg": "不支持首选语言",
+    "firmwareDownloadMsg": "下载固件：{firmwareVersion}",
+    "@firmwareDownloadMsg": {
+        "placeholders": {
+            "firmwareVersion": {
+                "type": "String",
+                "example": "1.2.3.45"
+            }
+        }
+    },
+    "firmwareLoadingErrorMsg": "固件不可用",
+    "retry": "重试",
+    "navigationErrorMsg": "找不到网页",
+    "navigateBack": "回去"
+}

@@ -3,6 +3,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../core/app/navigation/navigation.dart';
 import '../../../shared/constants.dart';
+import '../../../shared/ui/widgets/app_bar.dart';
+import '../../../shared/ui/widgets/app_drawer.dart';
 import '../../../shared/ui/widgets/error_message.dart';
 import '../../../shared/utils/get_localizations.dart';
 import '../data/api/firmware_api.dart';
@@ -10,8 +12,6 @@ import '../data/repositories/firmware_repository_impl.dart';
 import '../data/sources/remote/firmware_remote_data_source_impl.dart';
 import '../domain/entities/device.dart';
 import '../domain/use_cases/get_devices.dart';
-import 'widgets/app_bar.dart';
-import 'widgets/app_drawer.dart';
 import 'widgets/firmware_card.dart';
 
 class SelectDevicePage extends StatefulWidget {
