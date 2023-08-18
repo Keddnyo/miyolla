@@ -23,7 +23,16 @@ class AppNavigation {
         return null;
     }
 
-    return MaterialPageRoute(builder: (_) => page);
+    // Disable swipe gestures for iOS PWA app
+    Future<bool> onWillPop(BuildContext context) async =>
+        !Navigator.of(context).userGestureInProgress;
+
+    return MaterialPageRoute(
+      builder: (BuildContext context) => WillPopScope(
+        onWillPop: () => onWillPop(context),
+        child: page,
+      ),
+    );
   }
 
   static Route<dynamic>? onUnknownRoute(RouteSettings settings) =>
