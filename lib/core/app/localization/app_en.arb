@@ -12,16 +12,16 @@
     "@apiDeveloper": {
         "description": "The message displayed in drawer item subtitle"
     },
-    "latestFirmware": "This firmware is up to date",
-    "@latestFirmware": {
+    "firmwareLatestMsg": "This firmware is up to date",
+    "@firmwareLatestMsg": {
         "description": "The message displayed on the firmware card if it is the latest"
     },
-    "unsuitableFirmware": "The preferred language isn't supported",
-    "@unsuitableFirmware": {
+    "firmwareUnsuitableMsg": "The preferred language isn't supported",
+    "@firmwareUnsuitableMsg": {
         "description": "The message displayed on the firmware card if it does not support the default language of the current device"
     },
-    "downloadingFirmware": "Downloading firmware: {firmwareVersion}",
-    "@downloadingFirmware": {
+    "firmwareDownloadMsg": "Downloading firmware: {firmwareVersion}",
+    "@firmwareDownloadMsg": {
         "description": "The message displayed when the firmware download starts",
         "placeholders": {
             "firmwareVersion": {
@@ -30,20 +30,20 @@
             }
         }
     },
-    "firmwaresAreUnavailable": "Firmwares are unavailable",
-    "@firmwaresAreUnavailable": {
+    "firmwareLoadingErrorMsg": "Firmwares are unavailable",
+    "@firmwareLoadingErrorMsg": {
         "description": "Error message displayed when firmwares are unavailable"
     },
     "retry": "Retry",
     "@retry": {
         "description": "Button title displayed when firmwares are unavailable"
     },
-    "errorNavigateRoute": "Page not found",
-    "@errorNavigateRoute": {
+    "navigationErrorMsg": "Page not found",
+    "@navigationErrorMsg": {
         "description": "Error message displayed when a navigation error occurrs"
     },
-    "goBack": "Go back",
-    "@goBack": {
+    "navigateBack": "Go back",
+    "@navigateBack": {
         "description": "Button title displayed when a navigation error occurrs"
     }
 }

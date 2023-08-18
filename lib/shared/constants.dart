@@ -6,7 +6,6 @@ class Constants {
       'https://4pda.to/forum/index.php?showuser=8096247';
   static const String schakalProfile =
       'https://4pda.to/forum/index.php?showuser=243484';
-
   static final String sourceCodeRepository =
       'https://github.com/keddnyo/$projectName';
 

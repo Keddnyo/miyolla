@@ -5,7 +5,6 @@ import '../../features/firmwares/ui/widgets/app_bar.dart';
 import '../../shared/constants.dart';
 import '../../shared/ui/widgets/error_message.dart';
 import '../../shared/utils/get_localizations.dart';
-import '../app/navigation/navigation.dart';
 
 class ErrorPage extends StatefulWidget {
   const ErrorPage({super.key});
@@ -18,29 +17,28 @@ class _ErrorPageState extends State<ErrorPage> {
   late final AppLocalizations _translation;
   late final String _errorMessage, _errorButtonTitle;
 
+  void onButtonPressed() => Navigator.pop(context);
+
   @override
-  void initState() {
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     _translation = GetLocalizations.of(context);
-    _errorMessage = _translation.errorNavigateRoute;
-    _errorButtonTitle = _translation.goBack;
-    super.initState();
+    _errorMessage = _translation.navigationErrorMsg;
+    _errorButtonTitle = _translation.navigateBack;
   }
-
-  void onButtonPressed() =>
-      Navigator.pushReplacementNamed(context, AppNavigation.deviceListRoute);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: SimpleAppBar(title: Constants.appName),
-      body: Center(
-        child: ErrorMessage(
-          icon: Icons.warning_amber,
-          message: _errorMessage,
-          buttonTitle: _errorButtonTitle,
-          onButtonPressed: onButtonPressed,
+  Widget build(BuildContext context) => Scaffold(
+        appBar: SimpleAppBar(
+          title: Constants.appName,
         ),
-      ),
-    );
-  }
+        body: Center(
+          child: ErrorMessage(
+            icon: Icons.warning_amber,
+            message: _errorMessage,
+            buttonTitle: _errorButtonTitle,
+            onButtonPressed: onButtonPressed,
+          ),
+        ),
+      );
 }

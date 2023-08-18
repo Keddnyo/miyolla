@@ -8,17 +8,20 @@ class DeviceModel {
   final List<FirmwareModel> firmwareModelList;
 
   Device toDevice() {
-    var firmwareList =
-        firmwareModelList.map((model) => model.toFirmware()).toList();
+    var firmwareList = firmwareModelList
+        .map(
+          (model) => model.toFirmware(),
+        )
+        .toList();
 
     return Device(name, firmwareList: firmwareList);
   }
 
   factory DeviceModel.fromJson(Map<String, dynamic> json) {
     String name = json['name'];
-    List<dynamic> firmwareList = json['firmwares'];
+    List<dynamic> firmwares = json['firmwares'];
 
-    var firmwareModelList = firmwareList
+    var firmwareModelList = firmwares
         .map((firmware) => FirmwareModel.fromJson(firmware))
         .toList();
 

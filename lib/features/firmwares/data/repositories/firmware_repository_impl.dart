@@ -10,7 +10,7 @@ class FirmwareRepositoryImpl implements FirmwareRepository {
   @override
   Future<List<Device>> getDevices({required String api}) async {
     try {
-      return await remoteDataSource.getDevices(url: api);
+      return await remoteDataSource.getDevices(api: api);
     } catch (e) {
       return [];
     }

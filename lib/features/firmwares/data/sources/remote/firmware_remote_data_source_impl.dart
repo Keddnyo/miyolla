@@ -8,11 +8,9 @@ import 'firmware_remote_data_source.dart';
 
 class FirmwareRemoteDataSourceImpl implements FirmwareRemoteDataSource {
   @override
-  Future<List<Device>> getDevices({required String url}) async {
-    var response = await http.get(Uri.parse(url));
-    var body = response.body;
-
-    Map<String, dynamic> json = jsonDecode(body);
+  Future<List<Device>> getDevices({required String api}) async {
+    var response = await http.get(Uri.parse(api));
+    Map<String, dynamic> json = jsonDecode(response.body);
     var deviceList = json.values.toList();
 
     return deviceList

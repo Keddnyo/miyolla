@@ -3,10 +3,10 @@
     "appDescription": "Прошивки для устройств Huami",
     "appDeveloper": "Разработчик приложения",
     "apiDeveloper": "Back-End API разработчик",
-    "latestFirmware": "Актуальная прошивка",
-    "unsuitableFirmware": "Прошивка не поддерживает нужный язык",
-    "downloadingFirmware": "Загрузка прошивки: {firmwareVersion}",
-    "@downloadingFirmware": {
+    "firmwareLatestMsg": "Актуальная прошивка",
+    "firmwareUnsuitableMsg": "Прошивка не поддерживает нужный язык",
+    "firmwareDownloadMsg": "Загрузка прошивки: {firmwareVersion}",
+    "@firmwareDownloadMsg": {
         "placeholders": {
             "firmwareVersion": {
                 "type": "String",
@@ -14,8 +14,8 @@
             }
         }
     },
-    "firmwaresAreUnavailable": "Список прошивок временно недоступен",
+    "firmwareLoadingErrorMsg": "Список прошивок временно недоступен",
     "retry": "Повторить",
-    "errorNavigateRoute": "Страница не найдена",
-    "goBack": "Вернуться назад"
+    "navigationErrorMsg": "Страница не найдена",
+    "navigateBack": "Вернуться назад"
 }

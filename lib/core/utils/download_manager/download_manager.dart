@@ -5,12 +5,15 @@ import 'data/targets/web/download_manager_web_impl.dart';
 import 'domain/use_cases/download_file.dart';
 
 class DownloadManager {
-  static void downloadFile(String url, {String? fileName}) async {
-    var downloadManagerCommon = DownloadManagerCommonImpl();
-    var downloadManagerWeb = DownloadManagerWebImpl();
-    var downloadManagerAndroid = DownloadManagerAndroidImpl();
-    var repository = DownloadManagerRepositoryImpl(
-        downloadManagerCommon, downloadManagerWeb, downloadManagerAndroid);
-    DownloadFile(repository)(url, fileName: fileName);
-  }
+  static void downloadFile(String url, {String? fileName}) =>
+      DownloadFile(
+        DownloadManagerRepositoryImpl(
+          DownloadManagerCommonImpl(),
+          DownloadManagerWebImpl(),
+          DownloadManagerAndroidImpl(),
+        ),
+      )(
+        url,
+        fileName: fileName,
+      );
 }

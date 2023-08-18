@@ -19,67 +19,69 @@ class SelectFirmwarePage extends StatefulWidget {
 }
 
 class _SelectFirmwarePageState extends State<SelectFirmwarePage> {
-  late final AppLocalizations _translation;
-  late final String _unsuitableMessage, _latestMessage;
-
   late final String _deviceName;
   late final List<Firmware> _firmwareList;
 
+  late final AppLocalizations _translation;
+  late final String _messageIsLatest, _messageIsUnsuitable;
+
   @override
   void initState() {
-    _translation = GetLocalizations.of(context);
-    _unsuitableMessage = _translation.unsuitableFirmware;
-    _latestMessage = _translation.latestFirmware;
-
+    super.initState();
     _deviceName = widget.device.name;
     _firmwareList = widget.device.firmwareList;
-    super.initState();
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: SimpleAppBar(title: _deviceName),
-      body: ListView.builder(
-        itemBuilder: (context, index) {
-          var firmware = _firmwareList[index];
-          var version = firmware.firmwareVersion;
-
-          var isLatest = index == 0;
-          var isSuitable = firmware.isSystemLocaleSupported(context);
-
-          void downloadFirmware() {
-            var fileName = '${_deviceName}_FW_$version';
-
-            DownloadManager.downloadFile(
-              firmware.downloadUrl,
-              fileName: fileName,
-            );
-
-            ShowSnackbar.call(
-              context: context,
-              message: _translation.downloadingFirmware(version),
-            );
-          }
-
-          return Column(
-            children: [
-              FirmwareCard(
-                title: version,
-                subtitle: !isSuitable
-                    ? _unsuitableMessage
-                    : isLatest
-                        ? _latestMessage
-                        : null,
-                onTap: downloadFirmware,
-                hasError: !isSuitable,
-              ),
-              if (isLatest) const Divider(),
-            ],
-          );
-        },
-        itemCount: _firmwareList.length,
-      ),
-    );
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _translation = GetLocalizations.of(context);
+    _messageIsLatest = _translation.firmwareLatestMsg;
+    _messageIsUnsuitable = _translation.firmwareUnsuitableMsg;
   }
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        appBar: SimpleAppBar(
+          title: _deviceName,
+        ),
+        body: ListView.builder(
+          itemBuilder: (context, index) {
+            var firmware = _firmwareList[index];
+            var firmwareVersion = firmware.firmwareVersion;
+
+            var isLatest = index == 0;
+            var isSuitable = firmware.isSystemLocaleSupported(context);
+
+            void downloadFirmware() {
+              DownloadManager.downloadFile(
+                firmware.downloadUrl,
+                fileName: '${_deviceName}_FW_$firmwareVersion',
+              );
+
+              ShowSnackbar.call(
+                context: context,
+                message: _translation.firmwareDownloadMsg(firmwareVersion),
+              );
+            }
+
+            return Column(
+              children: [
+                FirmwareCard(
+                  title: firmwareVersion,
+                  subtitle: !isSuitable
+                      ? _messageIsUnsuitable
+                      : isLatest
+                          ? _messageIsLatest
+                          : null,
+                  onTap: downloadFirmware,
+                  hasError: !isSuitable,
+                ),
+                if (isLatest) const Divider(),
+              ],
+            );
+          },
+          itemCount: _firmwareList.length,
+        ),
+      );
 }

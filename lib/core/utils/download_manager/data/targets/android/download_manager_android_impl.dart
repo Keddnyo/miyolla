@@ -9,15 +9,17 @@ class DownloadManagerAndroidImpl implements DownloadManagerAndroid {
     var appPath = await getExternalStorageDirectory().then((d) => d?.path);
     var storagePath = appPath?.substring(0, appPath.indexOf('/Android'));
 
-    var defaultFileName = url.split('/').last;
-    var fileExtension = url.split('.').last;
+    if (fileName == null) {
+      fileName = url.split('/').last;
+    } else {
+      var fileExtension = url.split('.').last;
+      fileName = '${fileName.trim().replaceAll(' ', '_')}.$fileExtension';
+    }
 
     await AndroidDownloadManager.enqueue(
       downloadUrl: url,
       downloadPath: '$storagePath/Download',
-      fileName: fileName != null
-          ? '${fileName.trim().replaceAll(' ', '_')}.$fileExtension'
-          : defaultFileName,
+      fileName: fileName,
     );
   }
 }

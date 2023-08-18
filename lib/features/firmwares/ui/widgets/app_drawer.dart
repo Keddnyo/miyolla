@@ -14,81 +14,79 @@ class AppDrawer extends StatefulWidget {
 
 class _AppDrawerState extends State<AppDrawer> {
   late final AppLocalizations _translation;
-  late final String _description, _appDeveloper, _apiDeveloper;
-
-  @override
-  void initState() {
-    _translation = GetLocalizations.of(context);
-    _description = _translation.appDescription;
-    _appDeveloper = _translation.appDeveloper;
-    _apiDeveloper = _translation.apiDeveloper;
-    super.initState();
-  }
+  late final String _appDescription, _appDeveloper, _apiDeveloper;
 
   void _openDrawerItem(String url) {
     openUrl(url);
     Navigator.pop(context);
   }
 
-  void openRepository() => _openDrawerItem(Constants.sourceCodeRepository);
+  void openGitHub() => _openDrawerItem(Constants.sourceCodeRepository);
   void openKeddnyoProfile() => _openDrawerItem(Constants.keddnyoProfile);
   void openSchakalProfile() => _openDrawerItem(Constants.schakalProfile);
 
   @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          DrawerHeader(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    Constants.appName,
-                    style: TextStyle(fontSize: 36),
-                    textAlign: TextAlign.center,
-                  ),
-                  Text(
-                    _description,
-                    style: const TextStyle(fontSize: 14),
-                  ),
-                ],
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _translation = GetLocalizations.of(context);
+    _appDescription = _translation.appDescription;
+    _appDeveloper = _translation.appDeveloper;
+    _apiDeveloper = _translation.apiDeveloper;
+  }
+
+  @override
+  Widget build(BuildContext context) => Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      Constants.appName,
+                      style: TextStyle(fontSize: 36),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      _appDescription,
+                      style: const TextStyle(fontSize: 14),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.handyman),
-            title: const Text('Keddnyo'),
-            subtitle: Text(_appDeveloper),
-            onTap: openKeddnyoProfile,
-          ),
-          ListTile(
-            leading: const Icon(Icons.api),
-            title: const Text('Schakal'),
-            subtitle: Text(_apiDeveloper),
-            onTap: openSchakalProfile,
-          ),
-          const Divider(),
-          ListTile(
-            leading: const Icon(Icons.code),
-            title: const Text('GitHub'),
-            onTap: openRepository,
-          ),
-          const Divider(),
-          AboutListTile(
-            icon: const Icon(Icons.info_outlined),
-            applicationIcon: Image.asset(
-              'lib/core/app/assets/app_icon.png',
-              width: 72.0,
-              height: 72.0,
+            ListTile(
+              leading: const Icon(Icons.handyman),
+              title: const Text('Keddnyo'),
+              subtitle: Text(_appDeveloper),
+              onTap: openKeddnyoProfile,
             ),
-            applicationVersion: _description,
-            applicationLegalese: Constants.copyrightLabel,
-          ),
-        ],
-      ),
-    );
-  }
+            ListTile(
+              leading: const Icon(Icons.api),
+              title: const Text('Schakal'),
+              subtitle: Text(_apiDeveloper),
+              onTap: openSchakalProfile,
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.code),
+              title: const Text('GitHub'),
+              onTap: openGitHub,
+            ),
+            const Divider(),
+            AboutListTile(
+              icon: const Icon(Icons.info_outlined),
+              applicationIcon: Image.asset(
+                'lib/core/app/assets/app_icon.png',
+                width: 72.0,
+                height: 72.0,
+              ),
+              applicationVersion: _appDescription,
+              applicationLegalese: Constants.copyrightLabel,
+            ),
+          ],
+        ),
+      );
 }
