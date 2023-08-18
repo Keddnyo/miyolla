@@ -28,7 +28,7 @@ The MiYolla app can download different firmware versions for many Huami wearable
 ### Usage:
 1. Choose a wearable device
 2. Select the desired firmware version
-3. Install new firmware through unofficial app:
+3. Install unofficial app:
     * Android
         * [Gadgetbridge](https://gadgetbridge.org/)
         * [Notify for Amazfit & Zepp](https://play.google.com/store/apps/details?id=com.mc.amazfit1)
@@ -36,6 +36,8 @@ The MiYolla app can download different firmware versions for many Huami wearable
         * [Mi Bandage for Mi Band & Amazfit](https://play.google.com/store/apps/details?id=hu.tiborsosdevs.mibandage)
     * iOS
         * [AmazTools](https://amaztools.app/)
+4. [Get an auth key](https://mmk.pw/en/xiaomikey/) if the application doesn't want to connect to the device without it
+5. Install new firmware via unofficial app
 
 ### Languages:
 1. English
